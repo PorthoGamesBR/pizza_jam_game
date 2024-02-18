@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var state_machine = animation_tree.get("parameters/playback")
 
 @onready var timer = $WalkTimer
+@onready var sprite = $Sprite2D
 
 var rng = RandomNumberGenerator.new()
 var walk = 0
@@ -15,9 +16,10 @@ var direction = Vector2()
 
 func _ready():
 	var cw = func check_walk() :
-		print("Randomizing movement option")
+		# print("Randomizing movement option")
 		walk = rng.randi_range(0, 1)
 		direction = Vector2(rng.randi_range(-1, 1), rng.randi_range(-1, 1))
+		pick_dir()
 	
 	timer.connect("timeout", cw)
 	
@@ -34,3 +36,9 @@ func pick_new_state():
 		state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
+
+func pick_dir():
+	if (direction.x < 0):
+		sprite.flip_h = true
+	elif (direction.x > 0):
+		sprite.flip_h = false
