@@ -23,13 +23,13 @@ func _ready():
 	
 	timer.connect("timeout", cw)
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 # Update velocity
 	velocity = direction * move_speed * walk
 	pick_new_state()
 	
 	# Move and Slide function uses velocity of character body to move character or 
-	move_and_slide()
+	move_and_collide(velocity * delta)
 
 func pick_new_state():
 	if (velocity != Vector2.ZERO):

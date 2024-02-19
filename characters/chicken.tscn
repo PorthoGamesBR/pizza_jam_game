@@ -4,7 +4,22 @@
 [ext_resource type="Script" path="res://characters/npc_move.gd" id="1_xbdp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blfyr"]
-size = Vector2(10, 8)
+size = Vector2(9, 8)
+
+[sub_resource type="Animation" id="Animation_y58p1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_3x0cw"]
 resource_name = "idle"
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_y58p1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_s4br5"]
@@ -89,7 +89,7 @@ script = ExtResource("1_xbdp6")
 move_speed = 25.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_blfyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

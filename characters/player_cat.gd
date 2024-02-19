@@ -10,7 +10,7 @@ extends CharacterBody2D
 func _ready():
 	update_animation_parameters(starting_direction)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	# Get Input Direction
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -22,8 +22,8 @@ func _physics_process(_delta):
 	velocity = input_direction * move_speed
 	pick_new_state()
 	
-	# Move and Slide function uses velocity of character body to move character or 
-	move_and_slide()
+	# Move and Slide function uses velocity of character body to move character or
+	move_and_collide(velocity * delta)
 
 func update_animation_parameters(move_input : Vector2):
 	if (move_input != Vector2.ZERO) :

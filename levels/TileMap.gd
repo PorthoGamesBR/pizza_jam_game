@@ -16,7 +16,6 @@ func _ready():
 			set_cell(0,Vector2i(x-mapWidth/2,y-mapHeight/2),0,final)
 		
 
-
 func _process(delta):
 	pass
 
