@@ -1,10 +1,12 @@
 [gd_scene load_steps=28 format=3 uid="uid://dhucyx2qmqeos"]
 
 [ext_resource type="Script" path="res://characters/player_cat.gd" id="1_2ychb"]
-[ext_resource type="Texture2D" uid="uid://b5blipxcix5lc" path="res://art/Teste/Characters/Basic Charakter Spritesheet.png" id="1_w0u00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
 size = Vector2(8, 6)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dkh5o"]
+load_path = "res://.godot/imported/Basic Charakter Spritesheet.png-e262f4e03b6cb331a7883998d6810e1a.ctex"
 
 [sub_resource type="Animation" id="Animation_yrag3"]
 length = 0.001
@@ -23,8 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_pi02u"]
 resource_name = "idle_down"
-length = 0.18
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,7 +33,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -40,7 +41,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tsv46"]
 resource_name = "idle_left"
-length = 0.18
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,7 +49,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
@@ -57,7 +57,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_va11x"]
 resource_name = "idle_right"
-length = 0.18
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -66,7 +65,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [12, 13]
@@ -74,8 +73,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_c3hd4"]
 resource_name = "idle_up"
-length = 0.18
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,7 +81,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.587641),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [4, 5]
@@ -246,7 +244,7 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_7fvug")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_w0u00")
+texture = SubResource("CompressedTexture2D_dkh5o")
 hframes = 4
 vframes = 4
 
@@ -256,6 +254,24 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nlbfg")
+}
+tree_root = SubResource("AnimationNodeStateMachine_sqse6")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationTree"]
+libraries = {
+"": SubResource("AnimationLibrary_nlbfg")
+}
+tree_root = SubResource("AnimationNodeStateMachine_sqse6")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationTree/AnimationTree"]
 libraries = {
 "": SubResource("AnimationLibrary_nlbfg")
 }
