@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dhucyx2qmqeos"]
+[gd_scene load_steps=29 format=3 uid="uid://dhucyx2qmqeos"]
 
 [ext_resource type="Script" path="res://characters/player_cat.gd" id="1_2ychb"]
 [ext_resource type="Texture2D" uid="uid://b5blipxcix5lc" path="res://art/Teste/Characters/Basic Charakter Spritesheet.png" id="1_w0u00"]
+[ext_resource type="PackedScene" uid="uid://drvmq503dad5m" path="res://particles/bullet.tscn" id="2_4jdoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
 size = Vector2(8, 6)
@@ -240,6 +241,7 @@ graph_offset = Vector2(-90, 24)
 
 [node name="player_cat" type="CharacterBody2D"]
 script = ExtResource("1_2ychb")
+Bullet = ExtResource("2_4jdoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -263,3 +265,6 @@ tree_root = SubResource("AnimationNodeStateMachine_sqse6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(13, 3)

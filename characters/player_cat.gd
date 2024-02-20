@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var Bullet : PackedScene
+
 @export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0,1)
 
@@ -24,6 +26,9 @@ func _physics_process(delta):
 	
 	# Move and Slide function uses velocity of character body to move character or
 	move_and_collide(velocity * delta)
+	
+	if Input.get_action_strength("shoot") != 0:
+		shoot()
 
 func update_animation_parameters(move_input : Vector2):
 	if (move_input != Vector2.ZERO) :
@@ -35,3 +40,8 @@ func pick_new_state():
 		state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
+
+func shoot():
+	var b = Bullet.instantiate()
+	add_child(b)
+	b.transform = $Marker2D.transform
