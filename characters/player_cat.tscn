@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://dhucyx2qmqeos"]
 
 [ext_resource type="Script" path="res://characters/player_cat.gd" id="1_2ychb"]
-[ext_resource type="Texture2D" uid="uid://ruxs2g3gxi1l" path="res://art/Teste/Characters/Basic Charakter Spritesheet.png" id="1_w0u00"]
+[ext_resource type="Texture2D" uid="uid://bfn0gqsfa43tn" path="res://art/Teste/Characters/Basic Charakter Spritesheet.png" id="1_w0u00"]
 [ext_resource type="PackedScene" uid="uid://drvmq503dad5m" path="res://particles/bullet.tscn" id="2_4jdoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
@@ -143,8 +143,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_6prja"]
 resource_name = "walk_up"
-length = 0.18
-loop_mode = 2
+length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -152,7 +152,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [6, 7]
