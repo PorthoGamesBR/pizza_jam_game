@@ -24,8 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_pi02u"]
 resource_name = "idle_down"
-length = 0.18
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,7 +32,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -41,7 +40,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tsv46"]
 resource_name = "idle_left"
-length = 0.18
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,7 +48,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
@@ -58,7 +56,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_va11x"]
 resource_name = "idle_right"
-length = 0.18
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -67,7 +64,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [12, 13]
@@ -75,8 +72,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_c3hd4"]
 resource_name = "idle_up"
-length = 0.18
-loop_mode = 2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -84,7 +80,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [4, 5]
