@@ -7,6 +7,9 @@ var curr_hp = max_hp
 signal taken_damage
 signal died
 
+func _ready():
+	curr_hp = max_hp
+
 func take_damage(damage):
 	var dmg = damage
 	curr_hp -= dmg

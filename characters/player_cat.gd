@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 func _ready():
 	update_animation_parameters(starting_direction)
-
+	
 func _physics_process(delta):
 	# Get Input Direction
 	var input_direction = Vector2(
@@ -45,3 +45,13 @@ func shoot():
 	var b = Bullet.instantiate()
 	add_child(b)
 	b.transform = $Marker2D.transform
+
+func on_damage_took():
+	pass
+	
+func die():
+	queue_free()
+
+
+func _on_combat_life_controller_taken_damage():
+	pass # Replace with function body.
