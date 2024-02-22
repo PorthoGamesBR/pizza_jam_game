@@ -5,11 +5,28 @@ extends CharacterBody2D
 @export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0,1)
 
+var shoot_timer
+@export var shoot_delay : float = 1.0
+var shoot_ready = true
+
 # parameters/idle/blend_position
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+func set_sr_true():
+	shoot_ready = true
+	
+func setup_shoot_timer():
+	shoot_timer = Timer.new()
+	add_child(shoot_timer)
+	shoot_timer.wait_time = shoot_delay
+	shoot_timer.one_shot = true
+	shoot_timer.start()
+	shoot_timer.connect("timeout", set_sr_true)
+	
 func _ready():
+	setup_shoot_timer()
+	
 	update_animation_parameters(starting_direction)
 	
 func _physics_process(delta):
@@ -42,9 +59,12 @@ func pick_new_state():
 		state_machine.travel("idle")
 
 func shoot():
-	var b = Bullet.instantiate()
-	add_child(b)
-	b.transform = $Marker2D.transform
+	if shoot_ready:
+		var b = Bullet.instantiate()
+		add_child(b)
+		b.transform = $Marker2D.transform
+		shoot_ready = false
+		shoot_timer.start()
 
 func on_damage_took():
 	pass
