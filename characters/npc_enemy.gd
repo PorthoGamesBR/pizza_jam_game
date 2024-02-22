@@ -10,9 +10,7 @@ extends CharacterBody2D
 @onready var timer = $WalkTimer
 @onready var sprite = $Sprite2D
 
-# Combat status control
-@export var max_hp : int = 3
-var curr_hp = max_hp
+@onready var life_controller = $CombatLifeController
 
 var rng = RandomNumberGenerator.new()
 var walk = 0
@@ -26,6 +24,7 @@ func _ready():
 		pick_dir()
 	
 	timer.connect("timeout", cw)
+	life_controller.died.connect(die)
 	
 func _physics_process(delta):
 # Update velocity
@@ -35,13 +34,8 @@ func _physics_process(delta):
 	# Move and Slide function uses velocity of character body to move character or 
 	move_and_collide(velocity * delta)
 
-
-func take_damage(damage):
-	var dmg = damage
-	curr_hp -= dmg
-	print(curr_hp)
-	if (curr_hp <= 0):
-		die()
+# func take_damage(damage):
+#	life_controller.take_damage(damage)
 
 func die():
 	queue_free()
