@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_8m4jm"]
 [ext_resource type="PackedScene" uid="uid://c8pejtluiw2i" path="res://levels/game_level.tscn" id="2_abmrn"]
-[ext_resource type="PackedScene" uid="uid://dt0jfdnbd2018" path="res://Menu/Base/pause_menu.tscn" id="3_652eu"]
+[ext_resource type="PackedScene" uid="uid://dt0jfdnbd2018" path="res://Menu/pause_menu/pause_menu.tscn" id="3_652eu"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
