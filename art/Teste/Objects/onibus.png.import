@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj8c6dj73an17"
-path="res://.godot/imported/bus.png-77ac653b3cb50c60c0e91a469f8bc189.ctex"
+uid="uid://ddxpeqsv75knk"
+path="res://.godot/imported/onibus.png-20d9de73e3274bdbeca41bf84004b99e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Teste/Objects/bus.png"
-dest_files=["res://.godot/imported/bus.png-77ac653b3cb50c60c0e91a469f8bc189.ctex"]
+source_file="res://art/Teste/Objects/onibus.png"
+dest_files=["res://.godot/imported/onibus.png-20d9de73e3274bdbeca41bf84004b99e.ctex"]
 
 [params]
 
