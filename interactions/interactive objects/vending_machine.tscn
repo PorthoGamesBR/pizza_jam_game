@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn2uxuuhwqoh5"]
+
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine.gd" id="1_lmr2i"]
+[ext_resource type="Texture2D" uid="uid://bgu3spkx3ia4e" path="res://art/Teste/Objects/machine.png" id="2_babv4"]
+[ext_resource type="PackedScene" uid="uid://bktq3nj15vfww" path="res://interactions/interactive area/interactive_area.tscn" id="3_w2dau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qo7y"]
+size = Vector2(96, 65)
+
+[node name="VendingMachine" type="Node2D"]
+script = ExtResource("1_lmr2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_babv4")
+
+[node name="InteractiveArea" parent="." instance=ExtResource("3_w2dau")]
+action_name = "buy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
+position = Vector2(4, 9.5)
+shape = SubResource("RectangleShape2D_8qo7y")

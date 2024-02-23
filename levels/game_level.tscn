@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=13 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Texture2D" uid="uid://bwtsgfg2vlt54" path="res://art/Teste/Tilesets/grass-tileset.png" id="2_yjs5b"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://levels/TileMap.gd" id="3_ci5l0"]
 [ext_resource type="PackedScene" uid="uid://d2d71ejjil1kp" path="res://characters/chicken.tscn" id="4_3acvd"]
 [ext_resource type="Texture2D" uid="uid://dvxc3k3d4hugl" path="res://art/Teste/Tilesets/tree2.png" id="4_mqwdg"]
+[ext_resource type="PackedScene" uid="uid://bn2uxuuhwqoh5" path="res://interactions/interactive objects/vending_machine.tscn" id="7_jt8xb"]
+[ext_resource type="PackedScene" uid="uid://cer5j6lnhbj7x" path="res://interactions/InteractionManager.tscn" id="8_m328n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opxla"]
 resource_name = "grass"
@@ -217,3 +219,8 @@ position = Vector2(160, 136)
 
 [node name="npc_chicken5" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(210, 95)
+
+[node name="VendingMachine" parent="." instance=ExtResource("7_jt8xb")]
+position = Vector2(-32, 20)
+
+[node name="InteractionManager" parent="." instance=ExtResource("8_m328n")]
