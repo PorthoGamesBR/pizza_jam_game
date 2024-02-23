@@ -16,7 +16,32 @@ var rng = RandomNumberGenerator.new()
 var walk = 0
 var direction = Vector2()
 
+@onready var attack_controler = $DoesDamage
+var attack_timer
+@export var attack_delay : float = 1.0
+var attack_ready = true
+
+func set_atk_false():
+	# print("Chicken Attack is now false")
+	attack_controler.damage_is_active = false
+	attack_timer.start()
+	
+func set_atk_true():
+	# print("Chicken Attack is now true")
+	attack_controler.damage_is_active = true
+	
+func setup_attack_timer():
+	attack_timer = Timer.new()
+	add_child(attack_timer)
+	attack_timer.wait_time = attack_delay
+	attack_timer.one_shot = true
+	attack_timer.start()
+	attack_timer.connect("timeout", set_atk_true)
+	attack_controler.applied_damage.connect(set_atk_false)
+
 func _ready():
+	setup_attack_timer()
+	
 	var cw = func check_walk() :
 		# print("Randomizing movement option")
 		walk = rng.randi_range(0, 1)
