@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://binhdektpvpce"]
 
-[ext_resource type="Script" path="res://interactions/interactive objects/vending_ui.gd" id="1_h0em2"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_ui.gd" id="1_s2mtj"]
 
 [node name="VendingUi" type="Control"]
 process_mode = 2
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h0em2")
+script = ExtResource("1_s2mtj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

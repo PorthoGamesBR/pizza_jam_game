@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=16 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Texture2D" uid="uid://bwtsgfg2vlt54" path="res://art/Teste/Tilesets/grass-tileset.png" id="2_yjs5b"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d2d71ejjil1kp" path="res://characters/chicken.tscn" id="4_3acvd"]
 [ext_resource type="Texture2D" uid="uid://dvxc3k3d4hugl" path="res://art/Teste/Tilesets/tree2.png" id="4_mqwdg"]
 [ext_resource type="Texture2D" uid="uid://ddxpeqsv75knk" path="res://art/Teste/Objects/onibus.png" id="6_t14qd"]
-[ext_resource type="PackedScene" uid="uid://bn2uxuuhwqoh5" path="res://interactions/interactive objects/vending_machine.tscn" id="7_jt8xb"]
+[ext_resource type="PackedScene" uid="uid://bn2uxuuhwqoh5" path="res://interactions/interactive objects/vending_machine/vending_machine.tscn" id="7_jt8xb"]
 [ext_resource type="PackedScene" uid="uid://cer5j6lnhbj7x" path="res://interactions/InteractionManager.tscn" id="8_m328n"]
+[ext_resource type="PackedScene" uid="uid://ptfl0legyu3i" path="res://interactions/interactive objects/driver/driver.tscn" id="10_sv778"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opxla"]
 resource_name = "grass"
@@ -755,6 +756,7 @@ tile_set = SubResource("TileSet_1bk2i")
 format = 2
 layer_0/name = "Chao"
 layer_0/z_index = -3
+layer_0/tile_data = PackedInt32Array(0, 3, 1)
 layer_1/name = "Montanha"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array()
@@ -780,3 +782,6 @@ position = Vector2(251, 149)
 
 [node name="VendingMachine" parent="." instance=ExtResource("7_jt8xb")]
 position = Vector2(45, 65)
+
+[node name="Driver" parent="." instance=ExtResource("10_sv778")]
+position = Vector2(29, 122)

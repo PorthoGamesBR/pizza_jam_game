@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://bn2uxuuhwqoh5"]
 
-[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine.gd" id="1_lmr2i"]
-[ext_resource type="Texture2D" uid="uid://dnwkeqgkf535t" path="res://art/Teste/Objects/machine.png" id="2_babv4"]
-[ext_resource type="PackedScene" uid="uid://bktq3nj15vfww" path="res://interactions/interactive area/interactive_area.tscn" id="3_w2dau"]
-[ext_resource type="PackedScene" uid="uid://binhdektpvpce" path="res://interactions/interactive objects/vending_ui.tscn" id="4_uysj1"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_machine.gd" id="1_5dqmm"]
+[ext_resource type="Texture2D" uid="uid://dnwkeqgkf535t" path="res://art/Teste/Objects/machine.png" id="2_rellg"]
+[ext_resource type="PackedScene" uid="uid://bktq3nj15vfww" path="res://interactions/interactive area/interactive_area.tscn" id="3_6wqb1"]
+[ext_resource type="PackedScene" uid="uid://binhdektpvpce" path="res://interactions/interactive objects/vending_machine/vending_ui.tscn" id="4_1vqqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qo7y"]
 size = Vector2(47, 65)
@@ -134,14 +134,14 @@ states/Openning/position = Vector2(442.667, 195.333)
 transitions = ["Start", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_47ucm"), "Closening", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_yk5oa"), "Openning", "IdleOpen", SubResource("AnimationNodeStateMachineTransition_yrfjk")]
 
 [node name="VendingMachine" type="StaticBody2D"]
-script = ExtResource("1_lmr2i")
+script = ExtResource("1_5dqmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_babv4")
+texture = ExtResource("2_rellg")
 hframes = 3
 frame = 1
 
-[node name="InteractiveArea" parent="." instance=ExtResource("3_w2dau")]
+[node name="InteractiveArea" parent="." instance=ExtResource("3_6wqb1")]
 action_name = "buy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
@@ -161,7 +161,7 @@ shape = SubResource("RectangleShape2D_6ryet")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VendingUi" parent="CanvasLayer" instance=ExtResource("4_uysj1")]
+[node name="VendingUi" parent="CanvasLayer" instance=ExtResource("4_1vqqn")]
 visible = false
 offset_left = -29.0
 offset_top = -23.0

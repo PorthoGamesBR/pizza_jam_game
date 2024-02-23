@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://ptfl0legyu3i"]
+
+[ext_resource type="Texture2D" uid="uid://dthkuew6aw2j8" path="res://art/Teste/Objects/frog-animation-Sheet.png" id="1_n66qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56xha"]
+size = Vector2(17, 23)
+
+[sub_resource type="Animation" id="Animation_5e81c"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_kd80a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7k2f"]
+_data = {
+"RESET": SubResource("Animation_kd80a"),
+"idle": SubResource("Animation_5e81c")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ovvxh"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iupkf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hdpij"]
+states/idle/node = SubResource("AnimationNodeAnimation_ovvxh")
+states/idle/position = Vector2(382.667, 99.3333)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_iupkf")]
+
+[node name="Driver" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n66qy")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_56xha")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7k2f")
+}
+tree_root = SubResource("AnimationNodeStateMachine_hdpij")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7k2f")
+}
