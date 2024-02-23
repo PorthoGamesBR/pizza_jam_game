@@ -12,6 +12,13 @@ func _ready():
 	interaction_area.on_body_entered = Callable(self, "_open_animation")
 	interaction_area.on_body_exited = Callable(self, "_close_animation")
 
+@export var is_active: bool = true :
+	get:
+		return is_active
+	set(value):
+		interaction_area.is_active = value
+		is_active = value
+
 func _open_menu():
 	vendingUI.show()
 	get_tree().paused = true
