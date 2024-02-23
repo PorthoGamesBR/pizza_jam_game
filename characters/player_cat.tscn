@@ -264,7 +264,7 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(13, 3)
+position = Vector2(2, 3)
 
 [node name="CombatLifeController" type="Node" parent="."]
 script = ExtResource("4_yu8ts")

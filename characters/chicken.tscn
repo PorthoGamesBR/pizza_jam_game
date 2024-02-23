@@ -92,8 +92,11 @@ states/walk/position = Vector2(477, 102)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i3tew"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_66yom"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_52iyi")]
 
 [node name="npc_enemy" type="CharacterBody2D" groups=["inimigo"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_xbdp6")
 move_speed = 25.0
+attack_delay = 0.8
 
 [node name="DoesDamage" type="Area2D" parent="."]
 script = ExtResource("2_2vgpq")
