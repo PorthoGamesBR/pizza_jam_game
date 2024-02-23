@@ -1,21 +1,176 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn2uxuuhwqoh5"]
+[gd_scene load_steps=21 format=3 uid="uid://bn2uxuuhwqoh5"]
 
 [ext_resource type="Script" path="res://interactions/interactive objects/vending_machine.gd" id="1_lmr2i"]
-[ext_resource type="Texture2D" uid="uid://bgu3spkx3ia4e" path="res://art/Teste/Objects/machine.png" id="2_babv4"]
+[ext_resource type="Texture2D" uid="uid://dvjsd2grr3iul" path="res://art/Teste/Objects/machine.png" id="2_babv4"]
 [ext_resource type="PackedScene" uid="uid://bktq3nj15vfww" path="res://interactions/interactive area/interactive_area.tscn" id="3_w2dau"]
+[ext_resource type="PackedScene" uid="uid://binhdektpvpce" path="res://interactions/interactive objects/vending_ui.tscn" id="4_uysj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qo7y"]
-size = Vector2(96, 65)
+size = Vector2(47, 65)
 
-[node name="VendingMachine" type="Node2D"]
+[sub_resource type="Animation" id="Animation_yk0bd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_j3op1"]
+resource_name = "IdleOpen"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ixoe1"]
+resource_name = "IdleClosed"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fv4ey"]
+resource_name = "Closening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_bo61s"]
+resource_name = "Openning"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdnbt"]
+_data = {
+"Closening": SubResource("Animation_fv4ey"),
+"IdleClosed": SubResource("Animation_ixoe1"),
+"IdleOpen": SubResource("Animation_j3op1"),
+"Openning": SubResource("Animation_bo61s"),
+"RESET": SubResource("Animation_yk0bd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ryet"]
+size = Vector2(28.3338, 30.6779)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t1tfq"]
+animation = &"Closening"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0amj6"]
+animation = &"IdleClosed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pe4oi"]
+animation = &"IdleOpen"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nesal"]
+animation = &"Openning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_47ucm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yk5oa"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yrfjk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_unne2"]
+states/Closening/node = SubResource("AnimationNodeAnimation_t1tfq")
+states/Closening/position = Vector2(448, 40.5185)
+states/IdleClosed/node = SubResource("AnimationNodeAnimation_0amj6")
+states/IdleClosed/position = Vector2(317.333, 100.222)
+states/IdleOpen/node = SubResource("AnimationNodeAnimation_pe4oi")
+states/IdleOpen/position = Vector2(594.667, 97.9506)
+states/Openning/node = SubResource("AnimationNodeAnimation_nesal")
+states/Openning/position = Vector2(442.667, 195.333)
+transitions = ["Start", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_47ucm"), "Closening", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_yk5oa"), "Openning", "IdleOpen", SubResource("AnimationNodeStateMachineTransition_yrfjk")]
+
+[node name="VendingMachine" type="StaticBody2D"]
 script = ExtResource("1_lmr2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_babv4")
+hframes = 2
+frame = 1
 
 [node name="InteractiveArea" parent="." instance=ExtResource("3_w2dau")]
 action_name = "buy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractiveArea"]
-position = Vector2(4, 9.5)
+position = Vector2(-4.5, 9.5)
 shape = SubResource("RectangleShape2D_8qo7y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rdnbt")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.54558, -7)
+rotation = -3.14159
+scale = Vector2(1.09088, -1.04309)
+shape = SubResource("RectangleShape2D_6ryet")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VendingUi" parent="CanvasLayer" instance=ExtResource("4_uysj1")]
+visible = false
+offset_left = -29.0
+offset_top = -23.0
+offset_right = -29.0
+offset_bottom = -23.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rdnbt")
+}
+tree_root = SubResource("AnimationNodeStateMachine_unne2")
+anim_player = NodePath("../AnimationPlayer")

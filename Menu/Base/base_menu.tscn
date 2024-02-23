@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bocc40ft2h22i"]
 
-[ext_resource type="Script" path="res://Menu/base_menu.gd" id="1_7ncym"]
+[ext_resource type="Script" path="res://Menu/Base/base_menu.gd" id="1_7ncym"]
 
 [node name="BaseMenu" type="Control"]
 layout_mode = 3
@@ -23,13 +23,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Play"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Option"
 
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt0jfdnbd2018"]
+
+[ext_resource type="Script" path="res://Menu/Base/pause_menu.gd" id="1_4pja3"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4pja3")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 65.0
+offset_bottom = 91.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 18.0
+offset_right = 83.0
+offset_bottom = 72.0
+
+[node name="Resume" type="Button" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Exit" type="Button" parent="Panel2/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
