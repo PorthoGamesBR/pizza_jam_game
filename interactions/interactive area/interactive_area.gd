@@ -11,6 +11,10 @@ var on_body_entered: Callable = func():
 var on_body_exited: Callable = func():
 	pass
 
+func _ready():
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+	
 func _on_body_entered(_body):
 	if is_active:
 		on_body_entered.call()
