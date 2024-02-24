@@ -21,6 +21,8 @@ var attack_timer
 @export var attack_delay : float = 1.5
 @export var attack_ready = true
 
+@export var ItemObj : PackedScene
+
 func set_atk_false():
 	# print("Chicken Attack is now false")
 	attack_controler.damage_is_active = false
@@ -70,6 +72,9 @@ func _physics_process(delta):
 #	life_controller.take_damage(damage)
 
 func die():
+	var item_obj = ItemObj.instantiate()
+	get_parent().add_child(item_obj)
+	item_obj.global_position = global_position
 	queue_free()
 	
 func pick_new_state():

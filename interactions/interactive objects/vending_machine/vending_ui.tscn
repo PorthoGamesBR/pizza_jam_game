@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://binhdektpvpce"]
+[gd_scene load_steps=4 format=3 uid="uid://binhdektpvpce"]
 
 [ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_ui.gd" id="1_s2mtj"]
+[ext_resource type="PackedScene" uid="uid://c0ui4ivjudju4" path="res://interactions/interactive objects/vending_machine/shop_item.tscn" id="2_ff154"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_boehk"]
+font_color = Color(0.313726, 1, 0.227451, 1)
 
 [node name="VendingUi" type="Control"]
 process_mode = 2
@@ -11,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2mtj")
+shop_item = ExtResource("2_ff154")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -21,22 +26,31 @@ offset_bottom = 133.0
 layout_mode = 0
 offset_left = -1.0
 offset_top = 7.0
-offset_right = 389.0
+offset_right = 300.0
 offset_bottom = 268.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 2
-offset_left = 93.0
-offset_top = 48.0
-offset_right = 242.0
-offset_bottom = 181.0
+[node name="Cash" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 23.0
+offset_right = 190.0
+offset_bottom = 46.0
+text = "CASH: $0000"
+label_settings = SubResource("LabelSettings_boehk")
 
-[node name="Close" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Close"
+[node name="ShopMenu" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 56.0
+offset_right = 246.0
+offset_bottom = 240.0
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+[node name="Close" type="Button" parent="Panel"]
 layout_mode = 2
-text = "teste"
+offset_left = 248.0
+offset_top = 16.0
+offset_right = 292.0
+offset_bottom = 47.0
+text = "X"
 
-[connection signal="pressed" from="Panel/VBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
