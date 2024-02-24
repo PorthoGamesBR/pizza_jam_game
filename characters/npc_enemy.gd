@@ -18,17 +18,23 @@ var direction = Vector2()
 
 @onready var attack_controler = $DoesDamage
 var attack_timer
-@export var attack_delay : float = 1.0
-var attack_ready = true
+@export var attack_delay : float = 1.5
+@export var attack_ready = true
 
 func set_atk_false():
 	# print("Chicken Attack is now false")
 	attack_controler.damage_is_active = false
+	attack_ready = false
 	attack_timer.start()
 	
 func set_atk_true():
 	# print("Chicken Attack is now true")
 	attack_controler.damage_is_active = true
+	attack_ready = true
+	
+func trigger_attack_animation():
+	print("Attack")
+	state_machine.travel("attack")
 	
 func setup_attack_timer():
 	attack_timer = Timer.new()
@@ -38,6 +44,7 @@ func setup_attack_timer():
 	attack_timer.start()
 	attack_timer.connect("timeout", set_atk_true)
 	attack_controler.applied_damage.connect(set_atk_false)
+	attack_controler.applied_damage.connect(trigger_attack_animation)
 
 func _ready():
 	setup_attack_timer()
@@ -52,11 +59,12 @@ func _ready():
 	
 func _physics_process(delta):
 # Update velocity
-	velocity = direction * move_speed * walk
-	pick_new_state()
-	
-	# Move and Slide function uses velocity of character body to move character or 
-	move_and_collide(velocity * delta)
+	if (attack_ready):
+		velocity = direction * move_speed * walk
+		pick_new_state()
+		
+		# Move and Slide function uses velocity of character body to move character or 
+		move_and_collide(velocity * delta)
 
 # func take_damage(damage):
 #	life_controller.take_damage(damage)
@@ -74,4 +82,5 @@ func pick_new_state():
 func update_animation_parameters():
 	animation_tree.set("parameters/idle/blend_position", direction.x)
 	animation_tree.set("parameters/walk/blend_position", direction.x)
+	animation_tree.set("parameters/attack/blend_position", direction.x)
 
