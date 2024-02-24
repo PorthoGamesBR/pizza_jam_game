@@ -40,17 +40,23 @@ label_settings = SubResource("LabelSettings_boehk")
 
 [node name="ShopMenu" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 56.0
-offset_right = 246.0
-offset_bottom = 240.0
+offset_left = 33.0
+offset_top = 48.0
+offset_right = 402.0
+offset_bottom = 401.0
+scale = Vector2(0.577201, 0.557504)
+
+[node name="ShopItem" parent="Panel/ShopMenu" instance=ExtResource("2_ff154")]
+visible = false
+layout_mode = 2
 
 [node name="Close" type="Button" parent="Panel"]
 layout_mode = 2
-offset_left = 248.0
-offset_top = 16.0
-offset_right = 292.0
-offset_bottom = 47.0
+offset_left = 245.0
+offset_top = 30.0
+offset_right = 289.0
+offset_bottom = 61.0
+scale = Vector2(0.448481, 0.402675)
 text = "X"
 
 [connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
