@@ -46,6 +46,8 @@ func _physics_process(delta):
 	
 	# Update velocity
 	velocity = input_direction * move_speed
+	if aiming:
+		velocity -=50*input_direction
 	pick_new_state()
 	
 	# Move and Slide function uses velocity of character body to move character or

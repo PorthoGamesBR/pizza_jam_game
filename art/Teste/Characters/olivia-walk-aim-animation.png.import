@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw5t0rbjmlgtc"
-path="res://.godot/imported/olivia-animation-walk-aim-Sheet.png-cf507cdc64d7f63e8b5b1421ee66b635.ctex"
+uid="uid://uyinu083lpkq"
+path="res://.godot/imported/olivia-walk-aim-animation.png-cc21a0e656ae286bfc9bdd4d4737f3b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Teste/Characters/olivia-animation-walk-aim-Sheet.png"
-dest_files=["res://.godot/imported/olivia-animation-walk-aim-Sheet.png-cf507cdc64d7f63e8b5b1421ee66b635.ctex"]
+source_file="res://art/Teste/Characters/olivia-walk-aim-animation.png"
+dest_files=["res://.godot/imported/olivia-walk-aim-animation.png-cc21a0e656ae286bfc9bdd4d4737f3b6.ctex"]
 
 [params]
 
