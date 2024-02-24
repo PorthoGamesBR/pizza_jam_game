@@ -767,18 +767,23 @@ position = Vector2(126, 103)
 
 [node name="npc_chicken" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(116, 202)
+attack_ready = true
 
 [node name="npc_chicken2" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(209, 202)
+attack_ready = true
 
 [node name="npc_chicken3" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(80, 211)
+attack_ready = true
 
 [node name="npc_chicken4" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(176, 212)
+attack_ready = true
 
 [node name="npc_chicken5" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(251, 149)
+attack_ready = true
 
 [node name="VendingMachine" parent="." instance=ExtResource("7_jt8xb")]
 position = Vector2(45, 65)
