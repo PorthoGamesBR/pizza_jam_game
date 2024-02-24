@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=19 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Script" path="res://levels/UIManager.gd" id="1_4mtlk"]
+[ext_resource type="PackedScene" uid="uid://co5aycecx21nd" path="res://Menu/Creditos/CreditosUI.tscn" id="1_yu3y5"]
 [ext_resource type="PackedScene" uid="uid://cjiplvdo1gvo5" path="res://Menu/Player UI/life_ui.tscn" id="2_tg4so"]
 [ext_resource type="Texture2D" uid="uid://bwtsgfg2vlt54" path="res://art/Teste/Tilesets/grass-tileset.png" id="2_yjs5b"]
 [ext_resource type="Texture2D" uid="uid://biquu0vaqe63f" path="res://art/Teste/Tilesets/tree1.png" id="3_6u2l8"]
@@ -777,6 +778,13 @@ offset_left = -115.0
 offset_top = -87.0
 offset_right = -115.0
 offset_bottom = -87.0
+
+[node name="CreditosUi" parent="Camera2D" instance=ExtResource("1_yu3y5")]
+visible = false
+offset_left = -101.0
+offset_top = -93.0
+offset_right = -101.0
+offset_bottom = -93.0
 
 [node name="npc_chicken" parent="." instance=ExtResource("4_3acvd")]
 position = Vector2(116, 202)
