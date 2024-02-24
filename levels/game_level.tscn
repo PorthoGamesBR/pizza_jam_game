@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=20 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Script" path="res://levels/UIManager.gd" id="1_4mtlk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddxpeqsv75knk" path="res://art/Teste/Objects/onibus.png" id="6_t14qd"]
 [ext_resource type="PackedScene" uid="uid://bn2uxuuhwqoh5" path="res://interactions/interactive objects/vending_machine/vending_machine.tscn" id="7_jt8xb"]
 [ext_resource type="PackedScene" uid="uid://cer5j6lnhbj7x" path="res://interactions/InteractionManager.tscn" id="8_m328n"]
+[ext_resource type="Script" path="res://levels/DisableTopBus.gd" id="9_ppq0t"]
 [ext_resource type="PackedScene" uid="uid://ptfl0legyu3i" path="res://interactions/interactive objects/driver/driver.tscn" id="10_sv778"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opxla"]
@@ -753,12 +754,15 @@ life_ui = NodePath("../Camera2D/LifeUi")
 [node name="InteractionManager" parent="." instance=ExtResource("8_m328n")]
 
 [node name="player_cat" parent="." instance=ExtResource("1_02dqv")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(126, 103)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player_cat"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
 position = Vector2(100, 81)
 tile_set = SubResource("TileSet_1bk2i")
 format = 2
@@ -768,7 +772,21 @@ layer_0/tile_data = PackedInt32Array(0, 3, 1)
 layer_1/name = "Montanha"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "TopoOnibus"
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(0, 3, 0)
 script = ExtResource("3_ci5l0")
+
+[node name="Area2D" type="Area2D" parent="TileMap" node_paths=PackedStringArray("tilemap")]
+position = Vector2(-54, 54)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("9_ppq0t")
+tilemap = NodePath("..")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Area2D"]
+position = Vector2(-10, 4)
+polygon = PackedVector2Array(-1, 4, 21, 4, 20, -9, 166, -9, 166, -83, -18, -83, -18, -6, -1, -6)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(126, 103)
@@ -803,7 +821,7 @@ position = Vector2(176, 212)
 attack_ready = true
 
 [node name="npc_chicken5" parent="." instance=ExtResource("4_3acvd")]
-position = Vector2(251, 149)
+position = Vector2(12, 188)
 attack_ready = true
 
 [node name="VendingMachine" parent="." instance=ExtResource("7_jt8xb")]
@@ -811,3 +829,8 @@ position = Vector2(45, 65)
 
 [node name="Driver" parent="." instance=ExtResource("10_sv778")]
 position = Vector2(29, 122)
+
+[connection signal="area_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_exited"]
