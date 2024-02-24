@@ -5,6 +5,13 @@ extends CharacterBody2D
 @export var move_speed : float = 100
 @export var starting_direction : Vector2 = Vector2(0,1)
 
+var aiming = false :
+	get:
+		return aiming
+	set(value):
+		pick_new_state()
+		aiming = value
+
 var shoot_timer
 @export var shoot_delay : float = 1.0
 var shoot_ready = true
@@ -49,12 +56,17 @@ func _physics_process(delta):
 
 func update_animation_parameters(move_input : Vector2):
 	if (move_input != Vector2.ZERO) :
-		animation_tree.set("parameters/idle/blend_position", move_input)
-		animation_tree.set("parameters/walk/blend_position", move_input)
+		animation_tree.set("parameters/idle/blend_position", move_input.x)
+		animation_tree.set("parameters/walk/blend_position", move_input.x)
+		animation_tree.set("parameters/shoot/blend_position", move_input.x)
+		animation_tree.set("parameters/aim/blend_position", move_input.x)
 		
 func pick_new_state():
 	if (velocity != Vector2.ZERO):
-		state_machine.travel("walk")
+		if aiming:
+			state_machine.travel("aim")
+		else:
+			state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
 
@@ -63,6 +75,9 @@ func shoot():
 		var b = Bullet.instantiate()
 		add_child(b)
 		b.transform = $Marker2D.transform
+		if !aiming:
+			b.random_value = (randf()/5-0.1)*PI
+		b.start()
 		shoot_ready = false
 		shoot_timer.start()
 
@@ -72,6 +87,11 @@ func on_damage_took():
 func die():
 	queue_free()
 
-
+func _input(event):
+	if event.is_action_pressed("aim"):
+		aiming = true
+	if event.is_action_released("aim"):
+		aiming = false
+	
 func _on_combat_life_controller_taken_damage():
-	pass # Replace with function body.
+	pass
