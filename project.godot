@@ -15,6 +15,10 @@ run/main_scene="res://Menu/Base/base_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 InteractionManager="*res://interactions/InteractionManager.tscn"
