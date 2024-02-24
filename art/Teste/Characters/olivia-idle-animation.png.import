@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwbhhirsv4qt"
-path="res://.godot/imported/olivia-animation-idle.png-0d87fbf0983fc2dbd8ceed6112c2fc0f.ctex"
+uid="uid://c5vwtlh0j26v1"
+path="res://.godot/imported/olivia-idle-animation.png-9e6ed1d63d518be3e565d0569ee732b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Teste/Characters/olivia-animation-idle.png"
-dest_files=["res://.godot/imported/olivia-animation-idle.png-0d87fbf0983fc2dbd8ceed6112c2fc0f.ctex"]
+source_file="res://art/Teste/Characters/olivia-idle-animation.png"
+dest_files=["res://.godot/imported/olivia-idle-animation.png-9e6ed1d63d518be3e565d0569ee732b6.ctex"]
 
 [params]
 
