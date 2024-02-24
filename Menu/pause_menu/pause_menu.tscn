@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt0jfdnbd2018"]
 
-[ext_resource type="Script" path="res://Menu/Base/pause_menu.gd" id="1_4pja3"]
+[ext_resource type="Script" path="res://Menu/pause_menu/pause_menu.gd" id="1_4pja3"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -8,6 +8,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4pja3")
@@ -17,17 +21,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 65.0
-offset_bottom = 91.0
+offset_left = -150.0
+offset_top = -6.0
+offset_right = 174.0
+offset_bottom = 209.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel2"]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 18.0
-offset_right = 83.0
-offset_bottom = 72.0
+offset_top = 67.0
+offset_right = 317.0
+offset_bottom = 166.0
 
 [node name="Resume" type="Button" parent="Panel2/VBoxContainer"]
 layout_mode = 2
@@ -37,3 +42,6 @@ text = "Resume"
 layout_mode = 2
 text = "Exit
 "
+
+[connection signal="pressed" from="Panel2/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel2/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

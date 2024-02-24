@@ -134,6 +134,8 @@ states/Openning/position = Vector2(442.667, 195.333)
 transitions = ["Start", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_47ucm"), "Closening", "IdleClosed", SubResource("AnimationNodeStateMachineTransition_yk5oa"), "Openning", "IdleOpen", SubResource("AnimationNodeStateMachineTransition_yrfjk")]
 
 [node name="VendingMachine" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5dqmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

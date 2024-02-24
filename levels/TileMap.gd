@@ -7,7 +7,7 @@ var rng = RandomNumberGenerator.new()
 var matrix: Array[Array] = []
 
 func populateStructure():
-	var smallTree = PhysicalStructure.new(1, "SmallTree", 5, 3, 6)
+	var smallTree = PhysicalStructure.new(1, "SmallTree", 5, 3, 15)
 	var bigTree = PhysicalStructure.new(2, "BigTree", 5, 3, 6)
 	structure.append(smallTree)
 	structure.append(bigTree)
@@ -17,13 +17,13 @@ func create_onibus():
 	for x in range(13):
 		for y in range(7):
 			matrix[x-6][y-3] = true
-	
+
 func _ready():
 	for x in range(mapHeight):
 		matrix.append([])
 		for y in range(mapWidth):
 			matrix[x].append(false)
-	
+
 	create_onibus()
 	var total = 0
 	for x in chance:
