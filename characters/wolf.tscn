@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://d2d71ejjil1kp"]
+[gd_scene load_steps=33 format=3 uid="uid://d2d71ejjil1kp"]
 
 [ext_resource type="Script" path="res://characters/npc_enemy.gd" id="1_xbdp6"]
 [ext_resource type="Script" path="res://particles/DoesDamage.gd" id="2_2vgpq"]
 [ext_resource type="Script" path="res://characters/damageable.gd" id="2_af5me"]
+[ext_resource type="PackedScene" uid="uid://of6jrc8jm2ch" path="res://objects/ItemObj.tscn" id="2_gek8s"]
 [ext_resource type="Texture2D" uid="uid://drco253cxf0xj" path="res://art/Teste/Objects/Egg_item.png" id="3_s72fp"]
 [ext_resource type="Script" path="res://characters/CombatLifeController.gd" id="4_28gnd"]
 [ext_resource type="Texture2D" uid="uid://dvrjw5f5i7n6w" path="res://art/Teste/Characters/dog-animation-run-Sheet.png" id="5_rtyrd"]
@@ -55,6 +56,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_dmamv"]
 resource_name = "attack"
 length = 1.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -403,6 +405,7 @@ script = ExtResource("1_xbdp6")
 move_speed = 25.0
 attack_delay = 1.45
 attack_ready = false
+ItemObj = ExtResource("2_gek8s")
 
 [node name="DoesDamage" type="Area2D" parent="."]
 position = Vector2(-28, 2)

@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://of6jrc8jm2ch"]
+
+[ext_resource type="Script" path="res://objects/ItemObj.gd" id="1_xe5j3"]
+[ext_resource type="Texture2D" uid="uid://drmbhiapsowg8" path="res://art/em desenvolvimento/Celular.png" id="2_nqlub"]
+[ext_resource type="Texture2D" uid="uid://c3rfkfx0a5gta" path="res://art/em desenvolvimento/Prova-de-balas-cog.png" id="3_eg2dm"]
+[ext_resource type="Texture2D" uid="uid://cr54gsxwb5kgm" path="res://art/em desenvolvimento/Prova-de-Balas.png" id="4_uaaqm"]
+[ext_resource type="Script" path="res://interactions/interactive area/interactive_area.gd" id="5_nea73"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4q8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nqlub")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eg2dm")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uaaqm")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgfuh"]
+size = Vector2(16, 16)
+
+[node name="ItemObj" type="Node2D"]
+script = ExtResource("1_xe5j3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r4q8x")
+animation = &"2"
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("5_nea73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_mgfuh")
