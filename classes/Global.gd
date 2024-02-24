@@ -32,3 +32,6 @@ static var inventory = []:
 
 static func add_item_inventory(item: Item):
 	inventory.append(item)
+
+static func remove_from_inventory(id: int):
+	inventory.remove_at(id)

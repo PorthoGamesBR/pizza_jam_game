@@ -21,6 +21,7 @@ func _ready():
 
 func _open_menu():
 	vendingUI.show()
+	vendingUI.configure_ui()
 	get_tree().paused = true
 	var is_open = true
 	
