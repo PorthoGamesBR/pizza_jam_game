@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dhucyx2qmqeos"]
+[gd_scene load_steps=46 format=3 uid="uid://dhucyx2qmqeos"]
 
 [ext_resource type="Script" path="res://characters/player_cat.gd" id="1_2ychb"]
 [ext_resource type="PackedScene" uid="uid://drvmq503dad5m" path="res://particles/bullet.tscn" id="2_4jdoi"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b4fcmslomqoqe" path="res://art/Teste/Characters/olivia-walk-animation.png" id="5_alnx2"]
 [ext_resource type="Texture2D" uid="uid://580uw7jldagn" path="res://art/Teste/Characters/olivia-animation-shot-Sheet.png" id="6_le5bo"]
 [ext_resource type="Texture2D" uid="uid://uyinu083lpkq" path="res://art/Teste/Characters/olivia-walk-aim-animation.png" id="7_rxqoj"]
+[ext_resource type="AudioStream" uid="uid://cuf32ceos11bl" path="res://running-in-grass-6237.mp3" id="8_w6toq"]
+[ext_resource type="AudioStream" uid="uid://b8y1wpyl1s35j" path="res://1911-_mp3cut.net.mp3" id="9_vwsoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
 size = Vector2(13, 31)
@@ -680,6 +682,13 @@ offset_right = 35.0
 offset_bottom = -14.0
 text = "Recharging..."
 label_settings = SubResource("LabelSettings_tbbvx")
+
+[node name="walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_w6toq")
+volume_db = 12.761
+
+[node name="shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_vwsoq")
 
 [connection signal="died" from="CombatLifeController" to="." method="die"]
 [connection signal="taken_damage" from="CombatLifeController" to="." method="on_damage_took"]

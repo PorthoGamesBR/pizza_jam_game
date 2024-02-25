@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Script" path="res://levels/UIManager.gd" id="1_4mtlk"]
 [ext_resource type="Script" path="res://levels/game_level.gd" id="1_5x6gr"]
-[ext_resource type="PackedScene" uid="uid://of6jrc8jm2ch" path="res://objects/ItemObj.tscn" id="1_pw6qt"]
 [ext_resource type="PackedScene" uid="uid://co5aycecx21nd" path="res://Menu/Creditos/CreditosUI.tscn" id="1_yu3y5"]
 [ext_resource type="PackedScene" uid="uid://cjiplvdo1gvo5" path="res://Menu/Player UI/life_ui.tscn" id="2_tg4so"]
 [ext_resource type="Texture2D" uid="uid://bwtsgfg2vlt54" path="res://art/Teste/Tilesets/grass-tileset.png" id="2_yjs5b"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cer5j6lnhbj7x" path="res://interactions/InteractionManager.tscn" id="8_m328n"]
 [ext_resource type="Script" path="res://levels/DisableTopBus.gd" id="9_ppq0t"]
 [ext_resource type="PackedScene" uid="uid://ptfl0legyu3i" path="res://interactions/interactive objects/driver/driver.tscn" id="10_sv778"]
+[ext_resource type="AudioStream" uid="uid://boku8mfgqp35g" path="res://horrorambiance3.mp3" id="15_8jupg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gnrap"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -410,71 +410,6 @@ process_mode = 1
 y_sort_enabled = true
 script = ExtResource("1_5x6gr")
 
-[node name="TestItems" type="Node2D" parent="."]
-
-[node name="ItemObj" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj2" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj3" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj4" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj5" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj6" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj7" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj8" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj9" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj10" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj11" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj12" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj13" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj14" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj15" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj16" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj17" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj18" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj19" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj20" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
-[node name="ItemObj21" parent="TestItems" instance=ExtResource("1_pw6qt")]
-position = Vector2(86, 99)
-
 [node name="player_cat" parent="." instance=ExtResource("1_02dqv")]
 z_index = 1
 y_sort_enabled = true
@@ -540,10 +475,15 @@ position = Vector2(45, 65)
 [node name="Driver" parent="." instance=ExtResource("10_sv778")]
 position = Vector2(29, 122)
 
+[node name="background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_8jupg")
+volume_db = -5.538
+autoplay = true
+
 [connection signal="area_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_exited"]
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_exited" from="TileMap/Area2D" to="." method="player_exited_bus"]
+[connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_exited"]

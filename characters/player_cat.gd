@@ -98,6 +98,7 @@ func pick_new_state():
 
 func shoot():
 	if shoot_ready and !recharging:
+		$shot.play()
 		var b = Bullet.instantiate()
 		add_child(b)
 		b.transform = $Marker2D.transform
