@@ -20,8 +20,15 @@ static var max_upgraded = []
 static var special_upgrades = []
 
 static var _items_list = {
-	0: Item.new("Celular",10,0),
-	1: Item.new("Colete Fungado",100,1)} :
+	0: Item.new("Broken Cellphone",50,0),
+	1: Item.new("Funged Armor",100,1),
+	2: Item.new("Bottle",10,2),
+	3: Item.new("Bottle",10,3),
+	4: Item.new("Rubix Cube",20,4),
+	5: Item.new("Broken Glass",15,5),
+	6: Item.new("Bjorn Doll",60,6),
+	7: Item.new("Battery",40,7),
+	} :
 	set(val):
 		pass
 		

@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://of6jrc8jm2ch"]
+[gd_scene load_steps=13 format=3 uid="uid://of6jrc8jm2ch"]
 
 [ext_resource type="Script" path="res://objects/ItemObj.gd" id="1_xe5j3"]
 [ext_resource type="Texture2D" uid="uid://drmbhiapsowg8" path="res://art/em desenvolvimento/Celular.png" id="2_nqlub"]
 [ext_resource type="Texture2D" uid="uid://c3rfkfx0a5gta" path="res://art/em desenvolvimento/Prova-de-balas-cog.png" id="3_eg2dm"]
+[ext_resource type="Texture2D" uid="uid://dlnqge5dodvxc" path="res://art/em desenvolvimento/soda.png" id="4_2b5q7"]
+[ext_resource type="Texture2D" uid="uid://inh7dsdumssb" path="res://art/em desenvolvimento/squeeze.png" id="5_n070u"]
 [ext_resource type="Script" path="res://interactions/interactive area/interactive_area.gd" id="5_nea73"]
+[ext_resource type="Texture2D" uid="uid://bu0furx71spgr" path="res://art/em desenvolvimento/cube.png" id="6_wv7rv"]
+[ext_resource type="Texture2D" uid="uid://dj5n5167xgg8h" path="res://art/em desenvolvimento/glasses.png" id="7_wxgxm"]
+[ext_resource type="Texture2D" uid="uid://xvxgtqet0vy0" path="res://art/em desenvolvimento/bjorn-plush.png" id="8_hr6p5"]
+[ext_resource type="Texture2D" uid="uid://d0j8w5tjbrekh" path="res://art/em desenvolvimento/battery.png" id="9_wyphp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r4q8x"]
 animations = [{
@@ -22,6 +28,54 @@ animations = [{
 "loop": true,
 "name": &"1",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2b5q7")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n070u")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wv7rv")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wxgxm")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_hr6p5")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wyphp")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgfuh"]
@@ -32,7 +86,7 @@ script = ExtResource("1_xe5j3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r4q8x")
-animation = &"0"
+animation = &"7"
 
 [node name="InteractionArea" type="Area2D" parent="."]
 script = ExtResource("5_nea73")
