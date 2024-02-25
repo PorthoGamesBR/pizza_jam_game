@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2d71ejjil1kp"]
+[gd_scene load_steps=35 format=3 uid="uid://d2d71ejjil1kp"]
 
 [ext_resource type="Script" path="res://characters/npc_enemy.gd" id="1_xbdp6"]
 [ext_resource type="Script" path="res://particles/DoesDamage.gd" id="2_2vgpq"]
@@ -435,6 +435,26 @@ states/walk/node = SubResource("AnimationNodeBlendSpace1D_8ihij")
 states/walk/position = Vector2(439, 118)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6itwd"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_owvlh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_qi1mv"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_7v67c"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8y8fs")]
 
+[sub_resource type="Animation" id="Animation_hg48p"]
+resource_name = "dano"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nulpp"]
+_data = {
+"dano": SubResource("Animation_hg48p")
+}
+
 [node name="npc_enemy" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 3
 collision_mask = 3
@@ -488,6 +508,11 @@ parameters/attack/blend_position = 0
 parameters/idle/blend_position = 0
 parameters/walk/blend_position = 0
 
+[node name="AnimationDamage" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nulpp")
+}
+
 [node name="WalkTimer" type="Timer" parent="."]
 autostart = true
 
@@ -501,5 +526,6 @@ debug_enabled = true
 wait_time = 0.5
 autostart = true
 
+[connection signal="taken_damage" from="CombatLifeController" to="." method="_on_combat_life_controller_taken_damage"]
 [connection signal="path_changed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_path_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

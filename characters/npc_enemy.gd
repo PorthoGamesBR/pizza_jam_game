@@ -6,6 +6,7 @@ extends CharacterBody2D
 # parameters/idle/blend_position
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
+@onready var animation_damage = $AnimationDamage
 
 @onready var timer = $WalkTimer
 @onready var sprite = $Sprite2D
@@ -112,3 +113,7 @@ func makepath():
 func _on_timer_timeout():
 	if not Global.player_died:
 		makepath()
+
+
+func _on_combat_life_controller_taken_damage():
+	animation_damage.play("dano")
