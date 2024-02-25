@@ -36,6 +36,7 @@ animation = &"0"
 
 [node name="InteractionArea" type="Area2D" parent="."]
 script = ExtResource("5_nea73")
+font_size = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("RectangleShape2D_mgfuh")

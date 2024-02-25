@@ -115,11 +115,13 @@ func start_recharging():
 	recharge_timer.wait_time = recharge_delay
 	recharge_timer.start()
 	recharge_timer.connect("timeout", recharge)
+	$RechargeLabel.visible = true
 	recharge_started.emit()
 	
 func recharge():
 	curr_ammo = max_ammo
 	recharging = false
+	$RechargeLabel.visible = false
 	recharge_ended.emit()
 	
 func on_damage_took():

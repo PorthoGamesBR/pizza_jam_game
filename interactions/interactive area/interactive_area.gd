@@ -3,6 +3,7 @@ class_name InteractionArea
 
 @export var action_name: String = "interact"
 @export var is_active = true
+@export var font_size = 13
 
 var interact: Callable = func():
 	pass
