@@ -29,12 +29,11 @@ func _process (delta):
 
 func _sort_by_distance_to_player(areal, area2):
 	player = get_tree().get_first_node_in_group("player")
-	if areal != null && area2 != null:
-		var areal_to_player = Global.player.global_position.distance_to(areal.global_position)
-		var area2_to_player = Global.player.global_position.distance_to(area2.global_position)
+	if player and areal != null and area2 != null:
+		var areal_to_player = player.global_position.distance_to(areal.global_position)
+		var area2_to_player = player.global_position.distance_to(area2.global_position)
 		return areal_to_player < area2_to_player
 	return 1
-
 
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:

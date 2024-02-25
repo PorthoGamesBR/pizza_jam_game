@@ -12,4 +12,5 @@ func _ready():
 	life_controller = player.get_node("CombatLifeController")
 	
 func _process(delta):
-	set_life_vars()
+	if not Global.player_died:
+		set_life_vars()

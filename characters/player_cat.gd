@@ -38,6 +38,7 @@ var buff_ak47_active : bool = false
 # parameters/idle/blend_position
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
+@onready var animation_damage = $AnimationDamage
 
 func set_sr_true():
 	shoot_ready = true
@@ -129,9 +130,10 @@ func recharge():
 	recharge_ended.emit()
 	
 func on_damage_took():
-	pass
+	animation_damage.play("dano")
 	
 func die():
+	Global.player_died = true
 	queue_free()
 
 func _input(event):
