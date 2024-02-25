@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cer5j6lnhbj7x"]
+[gd_scene load_steps=3 format=3 uid="uid://cer5j6lnhbj7x"]
 
 [ext_resource type="Script" path="res://interactions/InteractionManager.gd" id="1_hy47e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8duu"]
 
 [node name="InteractionManager" type="Node2D"]
 z_index = 1
@@ -10,3 +12,4 @@ script = ExtResource("1_hy47e")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "tette"
+label_settings = SubResource("LabelSettings_c8duu")
