@@ -478,13 +478,6 @@ position = Vector2(86, 99)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(128, 88)
-move_speed = 100.0
-starting_direction = Vector2(0, 1)
-shoot_delay = 1.0
-min_shoot_delay = 0.1
-max_bullet_damage = 4
-recharge_delay = 3.0
-max_ammo = 6
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player_cat"]
 remote_path = NodePath("../../Camera2D")

@@ -71,9 +71,9 @@ func _physics_process(delta:float) -> void:
 			var next_path = nav_agent.get_next_path_position()
 			direction =  to_local(next_path).normalized()
 			walk = 1
-      pursuit = true
-	  else:
-		  pursuit = false
+			pursuit = true
+		else:
+			pursuit = false
 		if (attack_ready):
 			velocity = direction * move_speed * walk
 			pick_new_state()
