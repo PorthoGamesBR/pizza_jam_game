@@ -77,7 +77,7 @@ func _physics_process(delta):
 	# Move and Slide function uses velocity of character body to move character or
 	move_and_collide(velocity * delta)
 	
-	if Input.get_action_strength("shoot") != 0:
+	if Input.get_action_strength("shoot") != 0 and aiming:
 		shoot()
 
 func update_animation_parameters(move_input : Vector2):

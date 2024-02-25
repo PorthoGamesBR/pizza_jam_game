@@ -1,6 +1,8 @@
 extends Node
 class_name Global
 
+static var enemy_ammount : int = 0
+
 static var player: CharacterBody2D
 static var player_died : bool = false
 

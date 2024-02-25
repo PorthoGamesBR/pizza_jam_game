@@ -56,7 +56,7 @@ func setup_attack_timer():
 
 func _ready():
 	setup_attack_timer()
-	
+	Global.enemy_ammount += 1
 	var cw = func check_walk() :
 		# print("Randomizing movement option")
 		walk = rng.randi_range(0, 1)
@@ -92,6 +92,7 @@ func die():
 	var item_obj = ItemObj.instantiate()
 	get_parent().add_child(item_obj)
 	item_obj.global_position = global_position
+	Global.enemy_ammount -= 1
 	queue_free()
 	
 func pick_new_state():

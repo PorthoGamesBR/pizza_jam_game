@@ -8,12 +8,14 @@ var rng = RandomNumberGenerator.new()
 var matrix: Array[Array] = []
 
 func populateStructure():
+	structure = []
 	var smallTree = PhysicalStructure.new(1, "SmallTree", 5, 3, 15)
 	var bigTree = PhysicalStructure.new(2, "BigTree", 5, 3, 6)
 	structure.append(smallTree)
 	structure.append(bigTree)
 
 func populate_spawnable():
+	spawnable = []
 	spawnable.append({"packedScene":preload("res://characters/wolf.tscn"),"qtd":20,"height":2,"width":3})
 
 func spawnable_to_struct(spawnable) -> PhysicalStructure:
@@ -24,6 +26,7 @@ func create_onibus():
 	for x in range(13):
 		for y in range(7):
 			matrix[x-6][y-3] = true
+			
 
 func create_border():
 	for x in range(12):
@@ -42,6 +45,7 @@ func create_border():
 		set_cell(0,Vector2i(mapWidth/2-x,mapHeight/2),1,Vector2(1,3))
 
 func _ready():
+	matrix = []
 	create_border()
 	for x in range(mapHeight):
 		matrix.append([])

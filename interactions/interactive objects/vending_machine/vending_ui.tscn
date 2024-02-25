@@ -96,6 +96,7 @@ price = 100
 price_increase = 100
 
 [node name="Spc_Penetrating" type="Button" parent="Panel/UpgradeMenu"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 text = "!
@@ -105,6 +106,7 @@ upgrade_type = "penetrating"
 special_upgrade = true
 
 [node name="Spc_Double" type="Button" parent="Panel/UpgradeMenu"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 text = "!

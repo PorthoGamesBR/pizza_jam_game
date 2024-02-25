@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=40 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Script" path="res://levels/UIManager.gd" id="1_4mtlk"]
+[ext_resource type="Script" path="res://levels/game_level.gd" id="1_5x6gr"]
 [ext_resource type="PackedScene" uid="uid://of6jrc8jm2ch" path="res://objects/ItemObj.tscn" id="1_pw6qt"]
 [ext_resource type="PackedScene" uid="uid://co5aycecx21nd" path="res://Menu/Creditos/CreditosUI.tscn" id="1_yu3y5"]
 [ext_resource type="PackedScene" uid="uid://cjiplvdo1gvo5" path="res://Menu/Player UI/life_ui.tscn" id="2_tg4so"]
@@ -407,6 +408,7 @@ sources/4 = SubResource("TileSetAtlasSource_h8387")
 [node name="GameLevel" type="Node2D"]
 process_mode = 1
 y_sort_enabled = true
+script = ExtResource("1_5x6gr")
 
 [node name="TestItems" type="Node2D" parent="."]
 
@@ -540,5 +542,8 @@ position = Vector2(29, 122)
 
 [connection signal="area_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_area_exited"]
+[connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="TileMap/Area2D" to="." method="player_exited_bus"]
 [connection signal="body_exited" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_exited"]
