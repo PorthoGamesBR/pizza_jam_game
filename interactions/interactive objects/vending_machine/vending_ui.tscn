@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://binhdektpvpce"]
+[gd_scene load_steps=7 format=3 uid="uid://binhdektpvpce"]
 
 [ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_ui.gd" id="1_s2mtj"]
 [ext_resource type="PackedScene" uid="uid://c0ui4ivjudju4" path="res://interactions/interactive objects/vending_machine/shop_item.tscn" id="2_ff154"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/UpgradeButton.gd" id="3_6kpks"]
+[ext_resource type="Texture2D" uid="uid://cr54gsxwb5kgm" path="res://art/em desenvolvimento/Prova-de-Balas.png" id="5_eymfd"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/UpgradeArmorButton.gd" id="5_vixcm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boehk"]
 font_color = Color(0.313726, 1, 0.227451, 1)
@@ -19,8 +22,9 @@ shop_item = ExtResource("2_ff154")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 149.0
-offset_bottom = 133.0
+offset_top = 4.0
+offset_right = 300.0
+offset_bottom = 270.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -42,7 +46,7 @@ label_settings = SubResource("LabelSettings_boehk")
 layout_mode = 0
 offset_left = 33.0
 offset_top = 48.0
-offset_right = 402.0
+offset_right = 383.0
 offset_bottom = 401.0
 scale = Vector2(0.577201, 0.557504)
 
@@ -59,4 +63,77 @@ offset_bottom = 61.0
 scale = Vector2(0.448481, 0.402675)
 text = "X"
 
+[node name="UpgradeMenu" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 224.0
+offset_top = 50.0
+offset_right = 338.0
+offset_bottom = 357.0
+scale = Vector2(0.577201, 0.557504)
+
+[node name="Damage" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+text = "+Damage"
+script = ExtResource("3_6kpks")
+price = 100
+price_increase = 100
+
+[node name="Attack Speed" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+text = "+Shoot Speed"
+script = ExtResource("3_6kpks")
+upgrade_type = "atk_speed"
+price = 100
+price_increase = 100
+
+[node name="Ammunition" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+text = "+Ammunition"
+script = ExtResource("3_6kpks")
+upgrade_type = "ammo"
+price = 100
+price_increase = 100
+
+[node name="Spc_Penetrating" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "!
+"
+script = ExtResource("3_6kpks")
+upgrade_type = "penetrating"
+special_upgrade = true
+
+[node name="Spc_Double" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "!
+"
+script = ExtResource("3_6kpks")
+upgrade_type = "double_atk"
+special_upgrade = true
+
+[node name="Spc_Ak47" type="Button" parent="Panel/UpgradeMenu"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "!
+"
+script = ExtResource("3_6kpks")
+upgrade_type = "ak47"
+special_upgrade = true
+
+[node name="Armor" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 169.0
+offset_right = 271.0
+offset_bottom = 200.0
+size_flags_vertical = 8
+text = "
+"
+icon = ExtResource("5_eymfd")
+icon_alignment = 1
+script = ExtResource("5_vixcm")
+
 [connection signal="pressed" from="Panel/Close" to="." method="_on_close_pressed"]
+[connection signal="bought_upgrade" from="Panel/Armor" to="." method="configure_ui"]
