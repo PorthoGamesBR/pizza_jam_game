@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://uyinu083lpkq" path="res://art/Teste/Characters/olivia-walk-aim-animation.png" id="7_rxqoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
-size = Vector2(10, 28)
+size = Vector2(13, 31)
 
 [sub_resource type="Animation" id="Animation_yrag3"]
 length = 0.001
@@ -546,6 +546,9 @@ states/walk/position = Vector2(423.333, 106)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qprhc"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_qnkew"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5yvte"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_ax1u3"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_xblpt"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_dyt88"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_bd4tt"), "walk", "shoot", SubResource("AnimationNodeStateMachineTransition_18nif"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_1q53k"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_li13f"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_wn5f5")]
 graph_offset = Vector2(-90, 24)
 
+[sub_resource type="LabelSettings" id="LabelSettings_tbbvx"]
+font_size = 9
+
 [node name="player_cat" type="CharacterBody2D" groups=["player"]]
 collision_layer = 5
 collision_mask = 5
@@ -560,7 +563,7 @@ recharge_delay = null
 max_ammo = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_7fvug")
 
 [node name="IdleSprite" type="Sprite2D" parent="."]
@@ -614,6 +617,15 @@ vframes = 2
 frame = 4
 region_enabled = true
 region_rect = Rect2(0, 0, 240, 64)
+
+[node name="RechargeLabel" type="Label" parent="."]
+visible = false
+offset_left = -33.0
+offset_top = -27.0
+offset_right = 35.0
+offset_bottom = -14.0
+text = "Recharging..."
+label_settings = SubResource("LabelSettings_tbbvx")
 
 [connection signal="died" from="CombatLifeController" to="." method="die"]
 [connection signal="taken_damage" from="CombatLifeController" to="." method="on_damage_took"]
