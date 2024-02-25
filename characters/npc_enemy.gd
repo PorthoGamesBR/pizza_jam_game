@@ -20,6 +20,7 @@ var direction = Vector2()
 var attack_timer
 @export var attack_delay : float = 1.5
 @export var attack_ready = true
+@export var pursuit = false
 
 @export var ItemObj : PackedScene
 
@@ -69,6 +70,9 @@ func _physics_process(delta:float) -> void:
 		var next_path = nav_agent.get_next_path_position()
 		direction =  to_local(next_path).normalized()
 		walk = 1
+		pursuit = true
+	else:
+		pursuit = false
 	if (attack_ready):
 		velocity = direction * move_speed * walk
 		pick_new_state()
@@ -87,7 +91,10 @@ func die():
 	
 func pick_new_state():
 	if (velocity != Vector2.ZERO):
-		state_machine.travel("walk")
+		if pursuit:
+			state_machine.travel("attack")
+		else:
+			state_machine.travel("walk")
 	else:
 		state_machine.travel("idle")
 	update_animation_parameters()
