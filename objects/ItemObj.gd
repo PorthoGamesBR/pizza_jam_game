@@ -13,10 +13,6 @@ func start_item():
 	
 func collect_item():
 	Global.add_item_inventory(item_data)
-	var to_print = []
-	for i in Global.inventory:
-		to_print.append(i.name)
-	print(to_print)
 	queue_free()
 	
 func _ready():

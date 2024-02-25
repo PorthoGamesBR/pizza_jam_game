@@ -11,13 +11,19 @@ class Item:
 		sprite_id = spr_id
 
 
+static var money = 0
+static var upgrade_function : Callable = func(_upgrade_type): pass
+static var max_upgraded = []
+static var special_upgrades = []
+
 static var _items_list = {
 	0: Item.new("Celular",10,0),
-	1: Item.new("Colete Fungado",100,1),
-	2: Item.new("Colete",150,2),} :
+	1: Item.new("Colete Fungado",100,1)} :
 	set(val):
 		pass
 		
+static var colete_upgrade = _items_list[1]
+	
 static func get_item_from_id(id) -> Item:
 	return _items_list[id]
 	
@@ -35,3 +41,4 @@ static func add_item_inventory(item: Item):
 
 static func remove_from_inventory(id: int):
 	inventory.remove_at(id)
+

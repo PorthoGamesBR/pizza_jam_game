@@ -10,5 +10,6 @@ func set_life_vars():
 	
 func _ready():
 	life_controller = player.get_node("CombatLifeController")
+	
+func _process(delta):
 	set_life_vars()
-	life_controller.taken_damage.connect(set_life_vars)

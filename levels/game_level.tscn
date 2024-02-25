@@ -750,6 +750,66 @@ y_sort_enabled = true
 [node name="ItemObj" parent="." instance=ExtResource("1_pw6qt")]
 position = Vector2(86, 99)
 
+[node name="ItemObj2" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj3" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj4" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj5" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj6" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj7" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj8" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj9" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj10" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj11" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj12" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj13" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj14" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj15" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj16" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj17" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj18" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj19" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj20" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
+[node name="ItemObj21" parent="." instance=ExtResource("1_pw6qt")]
+position = Vector2(86, 99)
+
 [node name="player_cat" parent="." instance=ExtResource("1_02dqv")]
 z_index = 1
 y_sort_enabled = true
