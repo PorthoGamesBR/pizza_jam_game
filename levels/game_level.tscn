@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c8pejtluiw2i"]
+[gd_scene load_steps=39 format=3 uid="uid://c8pejtluiw2i"]
 
 [ext_resource type="PackedScene" uid="uid://dhucyx2qmqeos" path="res://characters/player_cat.tscn" id="1_02dqv"]
 [ext_resource type="Script" path="res://levels/UIManager.gd" id="1_4mtlk"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bwtsgfg2vlt54" path="res://art/Teste/Tilesets/grass-tileset.png" id="2_yjs5b"]
 [ext_resource type="Texture2D" uid="uid://biquu0vaqe63f" path="res://art/Teste/Tilesets/tree1.png" id="3_6u2l8"]
 [ext_resource type="Script" path="res://levels/TileMap.gd" id="3_ci5l0"]
-[ext_resource type="PackedScene" uid="uid://d2d71ejjil1kp" path="res://characters/wolf.tscn" id="4_3acvd"]
 [ext_resource type="Texture2D" uid="uid://dvxc3k3d4hugl" path="res://art/Teste/Tilesets/tree2.png" id="4_mqwdg"]
 [ext_resource type="Texture2D" uid="uid://ddxpeqsv75knk" path="res://art/Teste/Objects/onibus.png" id="6_t14qd"]
 [ext_resource type="PackedScene" uid="uid://bn2uxuuhwqoh5" path="res://interactions/interactive objects/vending_machine/vending_machine.tscn" id="7_jt8xb"]
@@ -520,6 +519,7 @@ polygon = PackedVector2Array(-1, 4, 21, 4, 20, -9, 166, -9, 166, -83, -18, -83, 
 position = Vector2(128, 88)
 
 [node name="LifeUi" parent="Camera2D" instance=ExtResource("2_tg4so")]
+z_index = 10
 offset_left = -115.0
 offset_top = -87.0
 offset_right = -115.0
@@ -531,13 +531,6 @@ offset_left = -101.0
 offset_top = -93.0
 offset_right = -101.0
 offset_bottom = -93.0
-
-[node name="npc_enemy" parent="." instance=ExtResource("4_3acvd")]
-position = Vector2(-39, 49)
-
-[node name="npc_chicken" parent="." instance=ExtResource("4_3acvd")]
-position = Vector2(116, 202)
-attack_ready = true
 
 [node name="VendingMachine" parent="." instance=ExtResource("7_jt8xb")]
 position = Vector2(45, 65)

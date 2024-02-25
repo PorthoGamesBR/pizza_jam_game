@@ -64,6 +64,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoesDamage/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dmamv"]
 resource_name = "attack"
@@ -117,6 +129,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(-28, 2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoesDamage/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_gmqm4"]
 resource_name = "attack_right"
@@ -169,6 +193,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(28, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoesDamage/Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_3x0cw"]
@@ -368,6 +404,26 @@ _data = {
 "walk_right": SubResource("Animation_vtatf")
 }
 
+[sub_resource type="Animation" id="Animation_hg48p"]
+resource_name = "dano"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nulpp"]
+_data = {
+"dano": SubResource("Animation_hg48p")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yr5fv"]
 animation = &"attack"
 
@@ -435,32 +491,13 @@ states/walk/node = SubResource("AnimationNodeBlendSpace1D_8ihij")
 states/walk/position = Vector2(439, 118)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_6itwd"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_owvlh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_qi1mv"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_7v67c"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8y8fs")]
 
-[sub_resource type="Animation" id="Animation_hg48p"]
-resource_name = "dano"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1), Color(0.980392, 0.0235294, 0, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nulpp"]
-_data = {
-"dano": SubResource("Animation_hg48p")
-}
-
 [node name="npc_enemy" type="CharacterBody2D" groups=["inimigo"]]
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_xbdp6")
 move_speed = 25.0
+atk_move_speed = 90.0
 attack_delay = 1.45
 attack_ready = false
 ItemObj = ExtResource("2_gek8s")
@@ -475,6 +512,7 @@ damage_is_active = false
 shape = SubResource("CircleShape2D_0en68")
 
 [node name="Sprite2D" type="Sprite2D" parent="DoesDamage"]
+visible = false
 position = Vector2(4.76837e-07, 0)
 scale = Vector2(0.347501, 0.350681)
 texture = ExtResource("3_s72fp")
@@ -498,6 +536,11 @@ libraries = {
 "": SubResource("AnimationLibrary_1csb3")
 }
 
+[node name="AnimationDamage" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nulpp")
+}
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1csb3")
@@ -507,11 +550,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/attack/blend_position = 0
 parameters/idle/blend_position = 0
 parameters/walk/blend_position = 0
-
-[node name="AnimationDamage" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nulpp")
-}
 
 [node name="WalkTimer" type="Timer" parent="."]
 autostart = true

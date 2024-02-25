@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed : float = 100
+@export var atk_move_speed : float = 200
 @export var starting_direction : Vector2 = Vector2(0,1)
 
 # parameters/idle/blend_position
@@ -77,6 +78,8 @@ func _physics_process(delta:float) -> void:
 			pursuit = false
 		if (attack_ready):
 			velocity = direction * move_speed * walk
+			if pursuit:
+				velocity = direction * atk_move_speed * walk
 			pick_new_state()
 		
 		# Move and Slide function uses velocity of character body to move character or 

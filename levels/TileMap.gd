@@ -3,6 +3,7 @@ extends TileMap
 @export var mapWidth : int = 64
 var chance : Array[Array] = [[325,25,25,3,3],[1, 25, 25, 3,12]]
 var structure: Array[PhysicalStructure] = []
+var spawnable : = []
 var rng = RandomNumberGenerator.new()
 var matrix: Array[Array] = []
 
@@ -11,6 +12,12 @@ func populateStructure():
 	var bigTree = PhysicalStructure.new(2, "BigTree", 5, 3, 6)
 	structure.append(smallTree)
 	structure.append(bigTree)
+
+func populate_spawnable():
+	spawnable.append({"packedScene":preload("res://characters/wolf.tscn"),"qtd":20,"height":2,"width":3})
+
+func spawnable_to_struct(spawnable) -> PhysicalStructure:
+	return PhysicalStructure.new(3,"spawnable",spawnable["height"],spawnable["width"],spawnable["qtd"])
 
 func create_onibus():
 	set_cell(1,Vector2i(0,0),3,Vector2(0,1))
@@ -59,7 +66,9 @@ func _ready():
 	populateStructure()
 	for struct in structure:
 		generateStructure(struct)
-		
+	populate_spawnable()
+	for spwnble in spawnable:
+		generateSpawnable(spwnble)
 
 func getAtlasId(val):
 	var y = 0
@@ -73,7 +82,18 @@ func getAtlasId(val):
 			total+=value
 		y+=1
 	return Vector2(0,0)
-	
+
+func generateSpawnable(spawnable):
+	for i in range(spawnable['qtd']):
+		var created = false
+		while !created:
+			print(spawnable['qtd'])
+			var baseX = rng.randf_range(0, mapWidth-spawnable["width"])-mapWidth/2
+			var baseY = rng.randf_range(0, mapHeight-spawnable["height"])-mapHeight/2
+			if verifyStructureConstruct(spawnable_to_struct(spawnable), baseX, baseY):
+				created = true
+				setSpawnable(spawnable, baseX, baseY)
+				
 func generateStructure(struct: PhysicalStructure):
 	for i in range(struct.qtd):
 		var created = false
@@ -83,6 +103,7 @@ func generateStructure(struct: PhysicalStructure):
 			if verifyStructureConstruct(struct, baseX,baseY):
 				created = true
 				setStructure(struct, baseX, baseY)
+				
 			
 func verifyStructureConstruct(struct: PhysicalStructure, baseX:int, baseY:int):
 	for x in range(struct.width):
@@ -91,6 +112,18 @@ func verifyStructureConstruct(struct: PhysicalStructure, baseX:int, baseY:int):
 				return false
 	return true
 	
+func setSpawnable(spawnable, baseX:int, baseY:int):
+	var final
+	var finalI
+	for x in range(spawnable["width"]):
+		for y in range(spawnable["height"]):
+			setCell(baseX+x,baseY+y)
+			final = Vector2(baseX+x,baseY+y)
+			finalI = Vector2i(baseX+x,baseY+y)
+	var spw = spawnable["packedScene"].instantiate()
+	get_parent().add_child.call_deferred(spw)
+	spw.global_position = to_global(map_to_local(finalI))
+			
 func setStructure(struct: PhysicalStructure, baseX:int, baseY:int):
 	for x in range(struct.width):
 		for y in range(struct.height):
