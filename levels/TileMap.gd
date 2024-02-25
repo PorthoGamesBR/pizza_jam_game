@@ -14,9 +14,9 @@ func populateStructure():
 
 func create_onibus():
 	set_cell(1,Vector2i(0,0),3,Vector2(0,1))
-	for x in range(13):
-		for y in range(7):
-			matrix[x-6][y-3] = true
+	for x in range(15):
+		for y in range(9):
+			matrix[x-7][y-4] = true
 
 func create_border():
 	for x in range(12):
