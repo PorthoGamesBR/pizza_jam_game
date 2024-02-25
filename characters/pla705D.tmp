@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://uyinu083lpkq" path="res://art/Teste/Characters/olivia-walk-aim-animation.png" id="7_rxqoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fvug"]
-size = Vector2(13, 31)
+size = Vector2(10, 28)
 
 [sub_resource type="Animation" id="Animation_yrag3"]
 length = 0.001
@@ -269,84 +269,6 @@ tracks/3/keys = {
 "values": [4]
 }
 
-[sub_resource type="Animation" id="Animation_8lwia"]
-resource_name = "shoot_left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IdleSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ShotSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_yv84f"]
-resource_name = "shoot_right"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("IdleSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MoveSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ShotSprite:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="Animation" id="Animation_88u6w"]
 resource_name = "walk_left"
 length = 0.8
@@ -455,7 +377,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_bxcri"]
 resource_name = "aim_left"
-length = 1.5
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -500,7 +422,7 @@ tracks/3/path = NodePath("AimSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [5, 6, 7, 8]
@@ -508,7 +430,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_gubly"]
 resource_name = "aim_right"
-length = 1.5
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -553,7 +475,7 @@ tracks/3/path = NodePath("AimSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -648,9 +570,6 @@ states/walk/position = Vector2(423.333, 106)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qprhc"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_qnkew"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5yvte"), "idle", "aim", SubResource("AnimationNodeStateMachineTransition_ax1u3"), "aim", "idle", SubResource("AnimationNodeStateMachineTransition_xblpt"), "aim", "walk", SubResource("AnimationNodeStateMachineTransition_dyt88"), "walk", "aim", SubResource("AnimationNodeStateMachineTransition_bd4tt"), "walk", "shoot", SubResource("AnimationNodeStateMachineTransition_18nif"), "aim", "shoot", SubResource("AnimationNodeStateMachineTransition_1q53k"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_li13f"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_wn5f5")]
 graph_offset = Vector2(-90, 24)
 
-[sub_resource type="LabelSettings" id="LabelSettings_tbbvx"]
-font_size = 9
-
 [node name="player_cat" type="CharacterBody2D" groups=["player"]]
 collision_layer = 5
 collision_mask = 5
@@ -658,10 +577,11 @@ script = ExtResource("1_2ychb")
 Bullet = ExtResource("2_4jdoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_7fvug")
 
 [node name="IdleSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("3_hpqf6")
 hframes = 5
 region_enabled = true
@@ -672,7 +592,6 @@ texture = ExtResource("5_alnx2")
 hframes = 5
 vframes = 2
 frame = 4
-region_enabled = true
 region_rect = Rect2(0, 0, 160, 64)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -696,8 +615,10 @@ position = Vector2(2, 3)
 
 [node name="CombatLifeController" type="Node" parent="."]
 script = ExtResource("4_yu8ts")
+max_hp = 20
 
 [node name="ShotSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("6_le5bo")
 hframes = 5
 frame = 4
@@ -705,6 +626,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 240, 35)
 
 [node name="AimSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("7_rxqoj")
 flip_h = true
 hframes = 5
@@ -712,15 +634,6 @@ vframes = 2
 frame = 4
 region_enabled = true
 region_rect = Rect2(0, 0, 240, 64)
-
-[node name="RechargeLabel" type="Label" parent="."]
-visible = false
-offset_left = -33.0
-offset_top = -27.0
-offset_right = 35.0
-offset_bottom = -14.0
-text = "Recharging..."
-label_settings = SubResource("LabelSettings_tbbvx")
 
 [connection signal="died" from="CombatLifeController" to="." method="die"]
 [connection signal="taken_damage" from="CombatLifeController" to="." method="on_damage_took"]

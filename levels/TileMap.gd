@@ -14,11 +14,28 @@ func populateStructure():
 
 func create_onibus():
 	set_cell(1,Vector2i(0,0),3,Vector2(0,1))
-	for x in range(13):
-		for y in range(7):
-			matrix[x-6][y-3] = true
+	for x in range(15):
+		for y in range(9):
+			matrix[x-7][y-4] = true
+
+func create_border():
+	for x in range(12):
+		for y in range(mapHeight+12):
+			set_cell(0,Vector2i(-x-mapWidth/2-2,y-mapHeight/2-6),0,Vector2(0,0))
+			set_cell(0,Vector2i(+x+mapWidth/2+1,mapHeight/2-y+6),0,Vector2(0,0))
+	for y in range(6):
+		for x in range(mapWidth+12):
+			set_cell(0,Vector2i(x-mapWidth/2-6, -y-mapHeight/2-2),0,Vector2(0,0))
+			set_cell(0,Vector2i(mapWidth/2-x+6,y+mapHeight/2+1),0,Vector2(0,0))
+	for y in range(mapHeight+1):
+		set_cell(0,Vector2i(-mapWidth/2-1,y-mapHeight/2-1),1,Vector2(1,3))
+		set_cell(0,Vector2i(mapWidth/2,mapHeight/2-y),1,Vector2(1,3))
+	for x in range(mapWidth+2):
+		set_cell(0,Vector2i(x-mapHeight/2-1,-mapHeight/2-1),1,Vector2(1,3))
+		set_cell(0,Vector2i(mapWidth/2-x,mapHeight/2),1,Vector2(1,3))
 
 func _ready():
+	create_border()
 	for x in range(mapHeight):
 		matrix.append([])
 		for y in range(mapWidth):
