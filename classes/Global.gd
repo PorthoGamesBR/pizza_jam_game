@@ -2,6 +2,7 @@ extends Node
 class_name Global
 
 static var player: CharacterBody2D
+static var player_died : bool = false
 
 class Item:
 	var name : String = "Item" 

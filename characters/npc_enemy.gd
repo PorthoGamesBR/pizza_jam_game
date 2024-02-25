@@ -64,14 +64,15 @@ func _ready():
 	
 func _physics_process(delta:float) -> void:
 # Update velocity 
-	var player_position = Global.player.global_position
-	if player_position.distance_to(global_position)<100:
-		var next_path = nav_agent.get_next_path_position()
-		direction =  to_local(next_path).normalized()
-		walk = 1
-	if (attack_ready):
-		velocity = direction * move_speed * walk
-		pick_new_state()
+	if not Global.player_died:
+		var player_position = Global.player.global_position
+		if player_position.distance_to(global_position)<100:
+			var next_path = nav_agent.get_next_path_position()
+			direction =  to_local(next_path).normalized()
+			walk = 1
+		if (attack_ready):
+			velocity = direction * move_speed * walk
+			pick_new_state()
 		
 		# Move and Slide function uses velocity of character body to move character or 
 		move_and_collide(velocity * delta)
@@ -102,4 +103,5 @@ func makepath():
 	nav_agent.target_position = Global.player.global_position
 	
 func _on_timer_timeout():
-	makepath()
+	if not Global.player_died:
+		makepath()
