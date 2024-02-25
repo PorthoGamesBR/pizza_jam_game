@@ -25,6 +25,7 @@ func _process (delta):
 	else:
 		label.hide()
 
+
 func _sort_by_distance_to_player(areal, area2):
 	player = get_tree().get_first_node_in_group("player")
 	var areal_to_player = player.global_position.distance_to(areal.global_position)
@@ -41,4 +42,4 @@ func _input(event):
 
 			await active_areas[0].interact.call()
 			can_interact = true
-			
+

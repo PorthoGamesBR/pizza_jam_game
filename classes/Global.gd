@@ -1,6 +1,8 @@
 extends Node
 class_name Global
 
+static var player: CharacterBody2D
+
 class Item:
 	var name : String = "Item" 
 	var price : int = 0

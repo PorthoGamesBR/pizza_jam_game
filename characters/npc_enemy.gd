@@ -23,6 +23,9 @@ var attack_timer
 
 @export var ItemObj : PackedScene
 
+
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+
 func set_atk_false():
 	# print("Chicken Attack is now false")
 	attack_controler.damage_is_active = false
@@ -59,8 +62,13 @@ func _ready():
 	timer.connect("timeout", cw)
 	life_controller.died.connect(die)
 	
-func _physics_process(delta):
-# Update velocity
+func _physics_process(delta:float) -> void:
+# Update velocity 
+	var player_position = Global.player.global_position
+	if player_position.distance_to(global_position)<100:
+		var next_path = nav_agent.get_next_path_position()
+		direction =  to_local(next_path).normalized()
+		walk = 1
 	if (attack_ready):
 		velocity = direction * move_speed * walk
 		pick_new_state()
@@ -89,3 +97,9 @@ func update_animation_parameters():
 	animation_tree.set("parameters/walk/blend_position", direction.x)
 	animation_tree.set("parameters/attack/blend_position", direction.x)
 
+
+func makepath():
+	nav_agent.target_position = Global.player.global_position
+	
+func _on_timer_timeout():
+	makepath()

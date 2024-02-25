@@ -14,9 +14,9 @@ func populateStructure():
 
 func create_onibus():
 	set_cell(1,Vector2i(0,0),3,Vector2(0,1))
-	for x in range(15):
-		for y in range(9):
-			matrix[x-7][y-4] = true
+	for x in range(13):
+		for y in range(7):
+			matrix[x-6][y-3] = true
 
 func create_border():
 	for x in range(12):
@@ -41,16 +41,21 @@ func _ready():
 		for y in range(mapWidth):
 			matrix[x].append(false)
 
-	create_onibus()
 	var total = 0
 	for x in chance:
 		for y in x:
 			total+=y
+	create_onibus()
 	for x in range(mapHeight):
 		for y in range(mapWidth):
 			var random = rng.randf_range(0, total)
 			var final = getAtlasId(random)
-			set_cell(0,Vector2i(x-mapWidth/2,y-mapHeight/2),0,final)
+			if !getCell(x-mapWidth/2,y-mapHeight/2):
+				set_cell(0,Vector2i(x-mapWidth/2,y-mapHeight/2),0,final)
+			else:
+				set_cell(0,Vector2i(x-mapWidth/2,y-mapHeight/2),4,Vector2(0,0))
+			
+	
 	populateStructure()
 	for struct in structure:
 		generateStructure(struct)

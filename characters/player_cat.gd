@@ -53,6 +53,8 @@ func setup_shoot_timer():
 	shoot_timer.connect("timeout", set_sr_true)
 	
 func _ready():
+	if !Global.player:
+		Global.player = self
 	setup_shoot_timer()
 	update_animation_parameters(starting_direction)
 	Global.upgrade_function = buff_status
