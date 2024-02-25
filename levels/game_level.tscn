@@ -318,12 +318,13 @@ texture_region_size = Vector2i(208, 112)
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hedbt")
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96.75, -47.5, 98.25, -47, 97.8459, -16.0867, 98.0625, 49.875, 92.9375, 49.875, 88.6875, 50.5, 80.4375, 55.5, 70.8125, 50, -29.6875, 50.1011, -37.5625, 56.125, -46.8129, 50.1183, -53.4375, 50.125, -53.5625, 48.875, 88.5625, 49.125, 92.9375, 48.875, 93.8182, -18.1818, -88, -16.7273, -87.9538, 32.8777, -87.9375, 34.5, -84.1875, 34.375, -84.1875, 48.375, -83.9688, 49, -71.9063, 49, -71.8438, 50.0625, -84.0625, 50.125, -101.063, 49.875, -101.063, 33.375, -100.063, 33.125, -99.8125, 11.25, -98.9375, 10, -98.9375, -24.875, -96.7887, -27.6257)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96.6625, 49.4449, -94.8807, -46.7722, 97.5534, -46.7722, 97.5534, 49.4449, -51.9724, 47.7297, 82.3779, 41.3657, 80.9637, -15.9099, -86.6206, -15.2028, -88.7419, 28.6378, -83.0851, 29.3449, -84.4993, 47.7297, -72.4785, 48.4368)
 0:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-21.0625, 16.125, -21.1875, 47.875, -34.1818, 48.7273, -34.1818, 16.7273)
 0:1/0/physics_layer_0/polygon_2/points = PackedVector2Array(8, 16.7273, 7.4375, 48, -6.54545, 47.2727, -6.54545, 16.7273)
 0:1/0/physics_layer_0/polygon_3/points = PackedVector2Array(35.6364, 16.7273, 35.6875, 48.125, 22.5455, 47.2727, 22.5455, 16.7273)
 0:1/0/physics_layer_0/polygon_4/points = PackedVector2Array(64.7273, 16.7273, 64.5625, 47.875, 51.6364, 47.2727, 51.6364, 16.7273)
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_21xm2")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -360,8 +361,6 @@ texture_region_size = Vector2i(208, 112)
 12:1/0 = 0
 12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96.6625, 49.4449, -94.8807, -46.7722, 97.5534, -46.7722, 97.5534, 49.4449, -51.9724, 47.7297, 82.3779, 41.3657, 80.9637, -15.9099, -86.6206, -15.2028, -88.7419, 28.6378, -83.0851, 29.3449, -84.4993, 47.7297, -72.4785, 48.4368)
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_21xm2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8387"]
 texture = ExtResource("2_yjs5b")
@@ -479,6 +478,13 @@ position = Vector2(86, 99)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(128, 88)
+move_speed = 100.0
+starting_direction = Vector2(0, 1)
+shoot_delay = 1.0
+min_shoot_delay = 0.1
+max_bullet_damage = 4
+recharge_delay = 3.0
+max_ammo = 6
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player_cat"]
 remote_path = NodePath("../../Camera2D")
