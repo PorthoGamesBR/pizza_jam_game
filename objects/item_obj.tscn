@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://of6jrc8jm2ch"]
+
+[ext_resource type="Script" path="res://objects/item_obj.gd" id="1_6a520"]
+[ext_resource type="Texture2D" uid="uid://drmbhiapsowg8" path="res://assets/art/oficial/objects/Collectable/Celular.png" id="2_uif5s"]
+[ext_resource type="Texture2D" uid="uid://c3rfkfx0a5gta" path="res://assets/art/oficial/objects/Collectable/Prova-de-balas-cog.png" id="3_3dk1q"]
+[ext_resource type="Texture2D" uid="uid://dlnqge5dodvxc" path="res://assets/art/oficial/objects/Collectable/soda.png" id="4_xw186"]
+[ext_resource type="Texture2D" uid="uid://inh7dsdumssb" path="res://assets/art/oficial/objects/Collectable/squeeze.png" id="5_ivfxk"]
+[ext_resource type="Texture2D" uid="uid://bu0furx71spgr" path="res://assets/art/oficial/objects/Collectable/cube.png" id="6_rit8r"]
+[ext_resource type="Texture2D" uid="uid://dj5n5167xgg8h" path="res://assets/art/oficial/objects/Collectable/glasses.png" id="7_5kool"]
+[ext_resource type="Texture2D" uid="uid://xvxgtqet0vy0" path="res://assets/art/oficial/objects/Collectable/bjorn-plush.png" id="8_53dsr"]
+[ext_resource type="Texture2D" uid="uid://d0j8w5tjbrekh" path="res://assets/art/oficial/objects/Collectable/battery.png" id="9_7mbg5"]
+[ext_resource type="Script" path="res://interactions/interactive area/interactive_area.gd" id="10_8w1cw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4q8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uif5s")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3dk1q")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xw186")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ivfxk")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rit8r")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5kool")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_53dsr")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7mbg5")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgfuh"]
+size = Vector2(16, 16)
+
+[node name="ItemObj" type="Node2D"]
+script = ExtResource("1_6a520")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r4q8x")
+animation = &"7"
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("10_8w1cw")
+font_size = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_mgfuh")

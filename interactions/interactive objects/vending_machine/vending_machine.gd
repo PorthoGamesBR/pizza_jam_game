@@ -3,7 +3,7 @@ extends Node2D
 var is_open = false
 
 @onready var interaction_area: InteractionArea = $InteractiveArea
-@onready var vendingUI: Control = $CanvasLayer/VendingUi
+@onready var vending_ui: Control = $CanvasLayer/VendingUi
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 # Called when the node enters the scene tree for the first time.
@@ -20,8 +20,8 @@ func _ready():
 		is_active = value
 
 func _open_menu():
-	vendingUI.show()
-	vendingUI.configure_ui()
+	vending_ui.show()
+	vending_ui.configure_ui()
 	get_tree().paused = true
 	var is_open = true
 	

@@ -111,12 +111,12 @@ func update_animation_parameters():
 	animation_tree.set("parameters/attack/blend_position", direction.x)
 
 
-func makepath():
+func make_path():
 	nav_agent.target_position = Global.player.global_position
 	
 func _on_timer_timeout():
 	if not Global.player_died:
-		makepath()
+		make_path()
 
 
 func _on_combat_life_controller_taken_damage():

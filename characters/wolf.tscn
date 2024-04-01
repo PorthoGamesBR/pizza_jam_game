@@ -1,11 +1,11 @@
 [gd_scene load_steps=34 format=3 uid="uid://d2d71ejjil1kp"]
 
 [ext_resource type="Script" path="res://characters/npc_enemy.gd" id="1_xbdp6"]
-[ext_resource type="Script" path="res://particles/DoesDamage.gd" id="2_2vgpq"]
+[ext_resource type="PackedScene" uid="uid://of6jrc8jm2ch" path="res://objects/item_obj.tscn" id="2_5du5s"]
 [ext_resource type="Script" path="res://characters/damageable.gd" id="2_af5me"]
-[ext_resource type="PackedScene" uid="uid://of6jrc8jm2ch" path="res://objects/ItemObj.tscn" id="2_gek8s"]
-[ext_resource type="Script" path="res://characters/CombatLifeController.gd" id="4_28gnd"]
-[ext_resource type="Texture2D" uid="uid://dvrjw5f5i7n6w" path="res://art/Teste/Characters/dog-animation-run-Sheet.png" id="5_rtyrd"]
+[ext_resource type="Script" path="res://particles/does_damage.gd" id="3_kpqoh"]
+[ext_resource type="Texture2D" uid="uid://dvrjw5f5i7n6w" path="res://assets/art/oficial/characters/Enemys/dog-animation-run-Sheet.png" id="5_oyrvn"]
+[ext_resource type="Script" path="res://characters/combat_life_controller.gd" id="6_sxxi4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0en68"]
 radius = 3.0
@@ -463,11 +463,11 @@ move_speed = 25.0
 atk_move_speed = 90.0
 attack_delay = 1.45
 attack_ready = false
-ItemObj = ExtResource("2_gek8s")
+ItemObj = ExtResource("2_5du5s")
 
 [node name="DoesDamage" type="Area2D" parent="."]
 position = Vector2(-28, 2)
-script = ExtResource("2_2vgpq")
+script = ExtResource("3_kpqoh")
 damagable_group = "player"
 damage_is_active = false
 
@@ -481,7 +481,7 @@ script = ExtResource("2_af5me")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3)
-texture = ExtResource("5_rtyrd")
+texture = ExtResource("5_oyrvn")
 flip_h = true
 hframes = 5
 vframes = 3
@@ -512,10 +512,9 @@ parameters/walk/blend_position = 0
 autostart = true
 
 [node name="CombatLifeController" type="Node" parent="."]
-script = ExtResource("4_28gnd")
+script = ExtResource("6_sxxi4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

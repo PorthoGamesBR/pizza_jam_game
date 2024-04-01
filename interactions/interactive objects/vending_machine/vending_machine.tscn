@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bn2uxuuhwqoh5"]
 
 [ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_machine.gd" id="1_5dqmm"]
-[ext_resource type="Texture2D" uid="uid://dnwkeqgkf535t" path="res://art/Teste/Objects/machine.png" id="2_rellg"]
+[ext_resource type="Texture2D" uid="uid://dnwkeqgkf535t" path="res://assets/art/oficial/objects/Fixes/machine.png" id="2_rellg"]
 [ext_resource type="PackedScene" uid="uid://bktq3nj15vfww" path="res://interactions/interactive area/interactive_area.tscn" id="3_6wqb1"]
 [ext_resource type="PackedScene" uid="uid://binhdektpvpce" path="res://interactions/interactive objects/vending_machine/vending_ui.tscn" id="4_1vqqn"]
 

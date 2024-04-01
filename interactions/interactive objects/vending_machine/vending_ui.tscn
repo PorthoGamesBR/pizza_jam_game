@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/vending_ui.gd" id="1_s2mtj"]
 [ext_resource type="PackedScene" uid="uid://c0ui4ivjudju4" path="res://interactions/interactive objects/vending_machine/shop_item.tscn" id="2_ff154"]
-[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/UpgradeButton.gd" id="3_6kpks"]
-[ext_resource type="Texture2D" uid="uid://cr54gsxwb5kgm" path="res://art/em desenvolvimento/Prova-de-Balas.png" id="5_eymfd"]
-[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/UpgradeArmorButton.gd" id="5_vixcm"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/upgrade_button.gd" id="3_6kpks"]
+[ext_resource type="Texture2D" uid="uid://cr54gsxwb5kgm" path="res://assets/art/oficial/objects/Collectable/Prova-de-Balas.png" id="5_eymfd"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/upgrade_armor_button.gd" id="5_vixcm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boehk"]
 font_color = Color(0.313726, 1, 0.227451, 1)

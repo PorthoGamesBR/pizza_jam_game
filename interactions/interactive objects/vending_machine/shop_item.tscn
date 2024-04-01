@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://c0ui4ivjudju4"]
 
-[ext_resource type="Texture2D" uid="uid://drmbhiapsowg8" path="res://art/em desenvolvimento/Celular.png" id="1_ne8vv"]
-[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/ShopItem.gd" id="1_ye7fx"]
-[ext_resource type="Texture2D" uid="uid://c3rfkfx0a5gta" path="res://art/em desenvolvimento/Prova-de-balas-cog.png" id="2_w251s"]
-[ext_resource type="Texture2D" uid="uid://dlnqge5dodvxc" path="res://art/em desenvolvimento/soda.png" id="4_rh3ed"]
-[ext_resource type="Texture2D" uid="uid://inh7dsdumssb" path="res://art/em desenvolvimento/squeeze.png" id="5_srqof"]
-[ext_resource type="Texture2D" uid="uid://bu0furx71spgr" path="res://art/em desenvolvimento/cube.png" id="6_a0y3x"]
-[ext_resource type="Texture2D" uid="uid://dj5n5167xgg8h" path="res://art/em desenvolvimento/glasses.png" id="7_m3p72"]
-[ext_resource type="Texture2D" uid="uid://xvxgtqet0vy0" path="res://art/em desenvolvimento/bjorn-plush.png" id="8_y7gp3"]
-[ext_resource type="Texture2D" uid="uid://d0j8w5tjbrekh" path="res://art/em desenvolvimento/battery.png" id="9_pg7rx"]
+[ext_resource type="Script" path="res://interactions/interactive objects/vending_machine/shop_item.gd" id="1_dyoes"]
+[ext_resource type="Texture2D" uid="uid://drmbhiapsowg8" path="res://assets/art/oficial/objects/Collectable/Celular.png" id="1_ne8vv"]
+[ext_resource type="Texture2D" uid="uid://c3rfkfx0a5gta" path="res://assets/art/oficial/objects/Collectable/Prova-de-balas-cog.png" id="2_w251s"]
+[ext_resource type="Texture2D" uid="uid://dlnqge5dodvxc" path="res://assets/art/oficial/objects/Collectable/soda.png" id="4_rh3ed"]
+[ext_resource type="Texture2D" uid="uid://inh7dsdumssb" path="res://assets/art/oficial/objects/Collectable/squeeze.png" id="5_srqof"]
+[ext_resource type="Texture2D" uid="uid://bu0furx71spgr" path="res://assets/art/oficial/objects/Collectable/cube.png" id="6_a0y3x"]
+[ext_resource type="Texture2D" uid="uid://dj5n5167xgg8h" path="res://assets/art/oficial/objects/Collectable/glasses.png" id="7_m3p72"]
+[ext_resource type="Texture2D" uid="uid://xvxgtqet0vy0" path="res://assets/art/oficial/objects/Collectable/bjorn-plush.png" id="8_y7gp3"]
+[ext_resource type="Texture2D" uid="uid://d0j8w5tjbrekh" path="res://assets/art/oficial/objects/Collectable/battery.png" id="9_pg7rx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xuyl"]
 animations = [{
@@ -83,7 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ye7fx")
+script = ExtResource("1_dyoes")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

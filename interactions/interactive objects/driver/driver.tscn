@@ -1,9 +1,24 @@
 [gd_scene load_steps=9 format=3 uid="uid://ptfl0legyu3i"]
 
-[ext_resource type="Texture2D" uid="uid://dthkuew6aw2j8" path="res://art/Teste/Objects/frog-animation-Sheet.png" id="1_n66qy"]
+[ext_resource type="Texture2D" uid="uid://dthkuew6aw2j8" path="res://assets/art/oficial/objects/Fixes/frog-animation-Sheet.png" id="1_n66qy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56xha"]
 size = Vector2(17, 23)
+
+[sub_resource type="Animation" id="Animation_kd80a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_5e81c"]
 resource_name = "idle"
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_kd80a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l7k2f"]
